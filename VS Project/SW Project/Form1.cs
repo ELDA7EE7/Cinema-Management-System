@@ -13,6 +13,8 @@ namespace SW_Project
 {
     public partial class Form1 : Form
     {
+        string ordb = "Data source=orcl;User Id=scott;Password=tiger;";
+        OracleConnection conn;
         public Form1()
         {
             InitializeComponent();
