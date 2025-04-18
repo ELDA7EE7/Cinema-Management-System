@@ -1,0 +1,11 @@
+D:\College\6th\SW\SW Project\VS Project\SW Project\bin\Debug\SW Project.exe.config
+D:\College\6th\SW\SW Project\VS Project\SW Project\bin\Debug\SW Project.exe
+D:\College\6th\SW\SW Project\VS Project\SW Project\bin\Debug\SW Project.pdb
+D:\College\6th\SW\SW Project\VS Project\SW Project\bin\Debug\Oracle.DataAccess.dll
+D:\College\6th\SW\SW Project\VS Project\SW Project\obj\Debug\SW Project.csproj.AssemblyReference.cache
+D:\College\6th\SW\SW Project\VS Project\SW Project\obj\Debug\SW_Project.Properties.Resources.resources
+D:\College\6th\SW\SW Project\VS Project\SW Project\obj\Debug\SW Project.csproj.GenerateResource.cache
+D:\College\6th\SW\SW Project\VS Project\SW Project\obj\Debug\SW Project.csproj.CoreCompileInputs.cache
+D:\College\6th\SW\SW Project\VS Project\SW Project\obj\Debug\SW Project.csproj.CopyComplete
+D:\College\6th\SW\SW Project\VS Project\SW Project\obj\Debug\SW Project.exe
+D:\College\6th\SW\SW Project\VS Project\SW Project\obj\Debug\SW Project.pdb
