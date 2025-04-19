@@ -27,7 +27,7 @@ namespace SW_Project
 
         private void Mange_account_Load(object sender, EventArgs e)
         {
-            //higit add .
+            
         }
         private void button1_Click(object sender, EventArgs e)
         {
@@ -38,84 +38,44 @@ namespace SW_Project
 
             command.CommandText = "";
 
-            if (textBox1.Text.ToString() != "")//Email
+            //Email
+            if (textBox1.Text.ToString() != "")
             {
-                string email = textBox1.Text.ToString();
-                var addr = new MailAddress(email);
-
-                if (addr.Address != email)
-                {
-                    MessageBox.Show("Not Valid Email");
-                }
-                else
+                if (CheckUserInfo.Validate_Email(textBox1.Text.ToString()))
                 {
                     //Code (only need to check if is uniqe)
                 }
             }
-            if (textBox2.Text.ToString() != "")//Password
+            //Password
+            if (textBox2.Text.ToString() != "")
             {
-
-            }
-            if (textBox3.Text.ToString() != "")//Age
-            {
-                bool stop = false;
-                string age = textBox3.Text.ToString();
-                int result = 0;
-
-                if (check_only_numbers(age) == false)
-                    stop = true;
-                else
+                if(CheckUserInfo.Validate_Password(textBox2.Text.ToString()))
                 {
-                    foreach (char c in age)
-                        result = result * 10 + (c - '0');
-                }
-
-                if (!stop && result > 100)
-                    MessageBox.Show("Not Valid Age");
-                else
-                {
-                    //Code Update
+                    //Code (Update)
                 }
             }
-            if (textBox4.Text.ToString() != "")//Phone Number
+            //Age
+            if (textBox3.Text.ToString() != "")
             {
-                bool stop = false;
-
-                string num = textBox4.Text.ToString();
-                int size = num.Length;
-
-                if (check_only_numbers(num) == false)
-                    stop = true;
-
-                string valid = "0125";
-                if (!stop && size != 11 || num[0] != '0' || num[1] != '1' || !valid.Contains(num[2]))
+                int age = CheckUserInfo.Validate_Age(textBox3.Text.ToString());
+                if (age != -1)
                 {
-                    MessageBox.Show("Not Valid Phone Number");
-                    stop = true;
+                    //Code (Update)
                 }
-
-                if (!stop)
+            }
+            //Phone Number
+            if (textBox4.Text.ToString() != "")
+            {
+                if(CheckUserInfo.Validate_Phone_Number(textBox4.Text.ToString()))
                 {
                     //Code (only need to check if is uniqe)
                 }
             }
-            if (textBox5.Text.ToString() != "")//Username
+            //UserName
+            if (textBox5.Text.ToString() != "")
             {
                 //Code (only need to check if is uniqe)
             }
-        }
-        private static bool check_only_numbers(string s)
-        {
-            int size = s.Length;
-            for (int i = 0; i < size; i++)
-            {
-                if (s[i] < '0' || s[i] > '9')
-                {
-                    MessageBox.Show("Must Only Contain Number");
-                    return false;
-                }
-            }
-            return true;
         }
     }
 }
