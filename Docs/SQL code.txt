@@ -1,12 +1,4 @@
 -- Create Entities with Oracle-compatible syntax
-CREATE TABLE Admins (
-    AdminID NUMBER UNIQUE NOT NULL,
-    Email VARCHAR2(255) UNIQUE NOT NULL,
-    Password VARCHAR2(255) NOT NULL,
-    Name VARCHAR2(255) NOT NULL,
-    PhoneNumber VARCHAR2(15),
-    Age NUMBER
-);
 
 CREATE TABLE Users (
     UserID NUMBER UNIQUE NOT NULL,
@@ -14,7 +6,8 @@ CREATE TABLE Users (
     Password VARCHAR2(255) NOT NULL,
     Username VARCHAR2(255) UNIQUE NOT NULL,
     PhoneNumber VARCHAR2(15),
-    Age NUMBER
+    Age NUMBER,
+    isAdmin NUMBER(1) CHECK (isAdmin IN (0, 1))
 );
 
 CREATE TABLE Movie (
@@ -31,20 +24,12 @@ CREATE TABLE Movie (
 
 -- Create Relationships
 CREATE TABLE AdminEditsMovie (
-    AdminID NUMBER,
+    UserID NUMBER,
     MovieID NUMBER,
     EditTimestamp TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-    PRIMARY KEY (AdminID, MovieID),
-    FOREIGN KEY (AdminID) REFERENCES Admins(AdminID),
+    PRIMARY KEY (UserID, MovieID),
+    FOREIGN KEY (UserID) REFERENCES Users(UserID),
     FOREIGN KEY (MovieID) REFERENCES Movie(MovieID)
-);
-
-CREATE TABLE AdminManagesUser (
-    AdminID NUMBER,
-    UserID NUMBER,
-    PRIMARY KEY (AdminID, UserID),
-    FOREIGN KEY (AdminID) REFERENCES Admins(AdminID),
-    FOREIGN KEY (UserID) REFERENCES Users(UserID)
 );
 
 CREATE TABLE Booking (
