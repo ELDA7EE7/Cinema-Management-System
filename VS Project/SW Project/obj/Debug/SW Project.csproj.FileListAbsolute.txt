@@ -9,3 +9,14 @@ D:\College\6th\SW\SW Project\VS Project\SW Project\obj\Debug\SW Project.csproj.C
 D:\College\6th\SW\SW Project\VS Project\SW Project\obj\Debug\SW Project.csproj.CopyComplete
 D:\College\6th\SW\SW Project\VS Project\SW Project\obj\Debug\SW Project.exe
 D:\College\6th\SW\SW Project\VS Project\SW Project\obj\Debug\SW Project.pdb
+C:\Users\lenovo\Desktop\Cinema-Management-System\VS Project\SW Project\bin\Debug\SW Project.exe.config
+C:\Users\lenovo\Desktop\Cinema-Management-System\VS Project\SW Project\bin\Debug\SW Project.exe
+C:\Users\lenovo\Desktop\Cinema-Management-System\VS Project\SW Project\bin\Debug\SW Project.pdb
+C:\Users\lenovo\Desktop\Cinema-Management-System\VS Project\SW Project\obj\Debug\SW Project.csproj.AssemblyReference.cache
+C:\Users\lenovo\Desktop\Cinema-Management-System\VS Project\SW Project\obj\Debug\SW_Project.Properties.Resources.resources
+C:\Users\lenovo\Desktop\Cinema-Management-System\VS Project\SW Project\obj\Debug\SW Project.csproj.GenerateResource.cache
+C:\Users\lenovo\Desktop\Cinema-Management-System\VS Project\SW Project\obj\Debug\SW Project.csproj.CoreCompileInputs.cache
+C:\Users\lenovo\Desktop\Cinema-Management-System\VS Project\SW Project\obj\Debug\SW Project.exe
+C:\Users\lenovo\Desktop\Cinema-Management-System\VS Project\SW Project\obj\Debug\SW Project.pdb
+C:\Users\lenovo\Desktop\Cinema-Management-System\VS Project\SW Project\obj\Debug\SW_Project.Form1.resources
+C:\Users\lenovo\Desktop\Cinema-Management-System\VS Project\SW Project\obj\Debug\SW_Project.Mange_account.resources
