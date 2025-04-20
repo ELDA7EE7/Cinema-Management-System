@@ -7,12 +7,62 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
-
+using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Types;
+using System.Data;
 namespace SW_Project
 {
     internal class CheckUserInfo
     {
         //put any check function here
+        public static bool Email_in_use(string email, OracleConnection conn)
+        {
+            int count = 0;
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT COUNT(EMAIL) FROM USERS WHERE EMAIL=:em";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("em", email);
+            count = Convert.ToInt32(cmd.ExecuteScalar());
+            if (count > 0)
+            {
+                MessageBox.Show("Email is already in use");
+                return true;
+            }
+            return false;
+        }
+        public static bool Username_in_use(string username, OracleConnection conn)
+        {
+            int count = 0;
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT COUNT(USERNAME) FROM USERS WHERE USERNAME=:em";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("em", username);
+            count = Convert.ToInt32(cmd.ExecuteScalar());
+            if (count > 0)
+            {
+                MessageBox.Show("Username is already in use");
+                return true;
+            }
+            return false;
+        }
+        public static bool Phone_in_use(string phone, OracleConnection conn)
+        {
+            int count = 0;
+            OracleCommand cmd = new OracleCommand();
+            cmd.Connection = conn;
+            cmd.CommandText = "SELECT COUNT(PHONENUMBER) FROM USERS WHERE PHONENUMBER=:em";
+            cmd.CommandType = CommandType.Text;
+            cmd.Parameters.Add("em", phone);
+            count = Convert.ToInt32(cmd.ExecuteScalar());
+            if (count > 0)
+            {
+                MessageBox.Show("phone number is already in use");
+                return true;
+            }
+            return false;
+        }
         public static bool check_only_numbers(string s)
         {
             int size = s.Length;
@@ -28,8 +78,17 @@ namespace SW_Project
         }
         public static bool Validate_Email(string email) 
         {
-            var addr = new MailAddress(email);
-            if(addr.Address != email)
+            try
+            {
+                var addr = new MailAddress(email);
+
+                if(addr.Address != email)
+                {
+                    MessageBox.Show("Not Valid Email");
+                    return false;
+                }
+            }
+            catch
             {
                 MessageBox.Show("Not Valid Email");
                 return false;
@@ -40,7 +99,7 @@ namespace SW_Project
         {
             int size = number.Length;
             string valid = "0125";
-            if (!CheckUserInfo.check_only_numbers(number) || size != 11 || number[0] != '0' || number[1] != '1' || !valid.Contains(number[2]))
+            if (!check_only_numbers(number) || size != 11 || number[0] != '0' || number[1] != '1' || !valid.Contains(number[2]))
             {
                 MessageBox.Show("Not Valid Phone Number");
                 return false;
@@ -52,7 +111,7 @@ namespace SW_Project
         {
             int result = 0;
 
-            if (!CheckUserInfo.check_only_numbers(age))
+            if (!check_only_numbers(age))
                 return -1;
 
             foreach (char c in age)
@@ -60,7 +119,7 @@ namespace SW_Project
 
             if(result > 100)
             {
-                MessageBox.Show("Not Valid Age");
+                MessageBox.Show("Not A Valid Age");
                 return -1;
             }
 

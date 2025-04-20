@@ -129,6 +129,7 @@
             this.add_button.TabIndex = 11;
             this.add_button.Text = "Add";
             this.add_button.UseVisualStyleBackColor = true;
+            this.add_button.Click += new System.EventHandler(this.add_button_Click);
             // 
             // AddAdmin
             // 
