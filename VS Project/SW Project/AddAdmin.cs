@@ -97,5 +97,10 @@ namespace SW_Project
                 MessageBox.Show("Please fill all the Data");
             }
         }
+
+        private void AddAdmin_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

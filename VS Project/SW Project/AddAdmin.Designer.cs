@@ -149,6 +149,7 @@
             this.Controls.Add(this.label1);
             this.Name = "AddAdmin";
             this.Text = "Add Admin";
+            this.Load += new System.EventHandler(this.AddAdmin_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

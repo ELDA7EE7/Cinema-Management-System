@@ -106,6 +106,7 @@
             this.update_Movie.TabIndex = 6;
             this.update_Movie.Text = "Update Or Delete Movie";
             this.update_Movie.UseVisualStyleBackColor = true;
+            this.update_Movie.Click += new System.EventHandler(this.update_Movie_Click);
             // 
             // label3
             // 

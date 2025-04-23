@@ -36,5 +36,10 @@ namespace SW_Project
         {
 
         }
+
+        private void update_Movie_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
