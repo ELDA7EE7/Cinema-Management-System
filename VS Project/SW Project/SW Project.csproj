@@ -98,9 +98,6 @@
     <EmbeddedResource Include="DeleteUser.resx">
       <DependentUpon>DeleteUser.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="LoginPage.resx">
-      <DependentUpon>LoginPage.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Manage_User.resx">
       <DependentUpon>Manage_User.cs</DependentUpon>
     </EmbeddedResource>
