@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CheckUserInfo.cs" />
+    <Compile Include="CurrUser.cs" />
     <Compile Include="DeleteUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -74,11 +75,11 @@
     <Compile Include="AddAdmin.Designer.cs">
       <DependentUpon>AddAdmin.cs</DependentUpon>
     </Compile>
-    <Compile Include="Search_Movie.cs">
+    <Compile Include="LoginPage.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Search_Movie.Designer.cs">
-      <DependentUpon>Search_Movie.cs</DependentUpon>
+    <Compile Include="LoginPage.Designer.cs">
+      <DependentUpon>LoginPage.cs</DependentUpon>
     </Compile>
     <Compile Include="Manage_User.cs">
       <SubType>Form</SubType>
@@ -96,9 +97,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="DeleteUser.resx">
       <DependentUpon>DeleteUser.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Search_Movie.resx">
-      <DependentUpon>Search_Movie.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Manage_User.resx">
       <DependentUpon>Manage_User.cs</DependentUpon>
