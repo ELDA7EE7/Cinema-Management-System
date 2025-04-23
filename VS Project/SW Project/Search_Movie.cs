@@ -58,16 +58,18 @@ namespace SW_Project
                 dataGridView1.Rows.Clear();
                 while (reader.Read())
                 {
+                    Console.WriteLine(reader[0]);
                     int movie_id = Convert.ToInt32(reader[0]);
                     string name = Convert.ToString(reader[1]);
-                    int rating = Convert.ToInt32(reader[2]);
-                    int ticket_cost = Convert.ToInt32(reader[3]);
+                    int rating = Convert.ToInt32(reader[5]);
+                    int ticket_cost = Convert.ToInt32(reader[6]);
 
                     dataGridView1.Rows.Add(movie_id, name, rating, ticket_cost, "View");
                 }
             }
             catch (Exception ex)
             {
+                MessageBox.Show(ex.ToString());
                 MessageBox.Show("Error: " + ex.Message);
             }
         }
