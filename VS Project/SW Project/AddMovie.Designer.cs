@@ -32,11 +32,11 @@
             this.description_tb = new System.Windows.Forms.TextBox();
             this.genre_tb = new System.Windows.Forms.TextBox();
             this.dateTime = new System.Windows.Forms.DateTimePicker();
-            this.rating = new System.Windows.Forms.NumericUpDown();
+            this.rating_num = new System.Windows.Forms.NumericUpDown();
             this.duration_tb = new System.Windows.Forms.TextBox();
             this.cost_tb = new System.Windows.Forms.TextBox();
             this.director_tb = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.back_button = new System.Windows.Forms.Button();
             this.Add_Button = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -46,12 +46,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.rating)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rating_num)).BeginInit();
             this.SuspendLayout();
             // 
             // title_tb
             // 
-            this.title_tb.Location = new System.Drawing.Point(153, 73);
+            this.title_tb.Location = new System.Drawing.Point(161, 74);
             this.title_tb.Name = "title_tb";
             this.title_tb.Size = new System.Drawing.Size(217, 20);
             this.title_tb.TabIndex = 0;
@@ -66,54 +66,60 @@
             // 
             // genre_tb
             // 
-            this.genre_tb.Location = new System.Drawing.Point(153, 149);
+            this.genre_tb.Location = new System.Drawing.Point(161, 149);
             this.genre_tb.Name = "genre_tb";
             this.genre_tb.Size = new System.Drawing.Size(217, 20);
             this.genre_tb.TabIndex = 2;
             // 
             // dateTime
             // 
-            this.dateTime.Location = new System.Drawing.Point(153, 277);
+            this.dateTime.Location = new System.Drawing.Point(161, 277);
             this.dateTime.Name = "dateTime";
             this.dateTime.Size = new System.Drawing.Size(217, 20);
             this.dateTime.TabIndex = 3;
             // 
-            // rating
+            // rating_num
             // 
-            this.rating.Location = new System.Drawing.Point(592, 226);
-            this.rating.Name = "rating";
-            this.rating.Size = new System.Drawing.Size(120, 20);
-            this.rating.TabIndex = 4;
+            this.rating_num.Location = new System.Drawing.Point(592, 226);
+            this.rating_num.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.rating_num.Name = "rating_num";
+            this.rating_num.Size = new System.Drawing.Size(120, 20);
+            this.rating_num.TabIndex = 4;
             // 
             // duration_tb
             // 
-            this.duration_tb.Location = new System.Drawing.Point(153, 225);
+            this.duration_tb.Location = new System.Drawing.Point(161, 225);
             this.duration_tb.Name = "duration_tb";
             this.duration_tb.Size = new System.Drawing.Size(217, 20);
             this.duration_tb.TabIndex = 5;
             // 
             // cost_tb
             // 
-            this.cost_tb.Location = new System.Drawing.Point(153, 190);
+            this.cost_tb.Location = new System.Drawing.Point(161, 190);
             this.cost_tb.Name = "cost_tb";
             this.cost_tb.Size = new System.Drawing.Size(217, 20);
             this.cost_tb.TabIndex = 7;
             // 
             // director_tb
             // 
-            this.director_tb.Location = new System.Drawing.Point(153, 112);
+            this.director_tb.Location = new System.Drawing.Point(161, 112);
             this.director_tb.Name = "director_tb";
             this.director_tb.Size = new System.Drawing.Size(217, 20);
             this.director_tb.TabIndex = 8;
             // 
-            // button1
+            // back_button
             // 
-            this.button1.Location = new System.Drawing.Point(13, 13);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 9;
-            this.button1.Text = "Back";
-            this.button1.UseVisualStyleBackColor = true;
+            this.back_button.Location = new System.Drawing.Point(13, 13);
+            this.back_button.Name = "back_button";
+            this.back_button.Size = new System.Drawing.Size(75, 23);
+            this.back_button.TabIndex = 9;
+            this.back_button.Text = "Back";
+            this.back_button.UseVisualStyleBackColor = true;
+            this.back_button.Click += new System.EventHandler(this.Back_to_AdminMenu);
             // 
             // Add_Button
             // 
@@ -219,11 +225,11 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.Add_Button);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.back_button);
             this.Controls.Add(this.director_tb);
             this.Controls.Add(this.cost_tb);
             this.Controls.Add(this.duration_tb);
-            this.Controls.Add(this.rating);
+            this.Controls.Add(this.rating_num);
             this.Controls.Add(this.dateTime);
             this.Controls.Add(this.genre_tb);
             this.Controls.Add(this.description_tb);
@@ -231,7 +237,7 @@
             this.Name = "AddMovie";
             this.Text = "Add Movie";
             this.Load += new System.EventHandler(this.AddMovie_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.rating)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.rating_num)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -243,11 +249,11 @@
         private System.Windows.Forms.TextBox description_tb;
         private System.Windows.Forms.TextBox genre_tb;
         private System.Windows.Forms.DateTimePicker dateTime;
-        private System.Windows.Forms.NumericUpDown rating;
+        private System.Windows.Forms.NumericUpDown rating_num;
         private System.Windows.Forms.TextBox duration_tb;
         private System.Windows.Forms.TextBox cost_tb;
         private System.Windows.Forms.TextBox director_tb;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button back_button;
         private System.Windows.Forms.Button Add_Button;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
