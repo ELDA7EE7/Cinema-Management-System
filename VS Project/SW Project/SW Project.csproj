@@ -93,6 +93,12 @@
     <Compile Include="Manage_User.Designer.cs">
       <DependentUpon>Manage_User.cs</DependentUpon>
     </Compile>
+    <Compile Include="Modify_film.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modify_film.Designer.cs">
+      <DependentUpon>Modify_film.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Search_Movie.cs">
@@ -115,6 +121,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Manage_User.resx">
       <DependentUpon>Manage_User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modify_film.resx">
+      <DependentUpon>Modify_film.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
