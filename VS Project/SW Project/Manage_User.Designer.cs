@@ -238,6 +238,7 @@
             this.Name = "Manage_User";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "User Management";
+            this.Load += new System.EventHandler(this.Manage_User_Load);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             this.panelForm.ResumeLayout(false);

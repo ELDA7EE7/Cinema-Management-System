@@ -24,14 +24,8 @@ namespace SW_Project
 
         string user_name, user_email, user_password, user_phone, user_age;
 
-        public Manage_User()
+        private void Manage_User_Load(object sender, EventArgs e)
         {
-            InitializeComponent();
-        }
-
-        private void Mange_User_Load(object sender, EventArgs e)
-        {
-            conn.Open();
             using (OracleConnection conn = new OracleConnection(ordb))
             {
                 string query = "SELECT Username, Email, Password, PhoneNumber, Age FROM Users WHERE UserId = :userId";
@@ -50,19 +44,25 @@ namespace SW_Project
                     user_age = age.Text = reader["Age"].ToString();
                 }
             }
-            conn.Close();
         }
+
+        public Manage_User()
+        {
+            conn = new OracleConnection(ordb);
+            InitializeComponent();
+        }
+
+
 
         private void button1_Click(object sender, EventArgs e)
         {
-            conn.Open();
             //if((username.Text.ToString() != user_name && !CheckUserInfo.Username_in_use(username.Text.ToString(),conn)) && 
             //    (email.Text.ToString() != user_email && !CheckUserInfo.Email_in_use(email.Text.ToString(),conn) && CheckUserInfo.Validate_Email(email.Text.ToString())) &&
             //    (phonenumber.Text.ToString() != user_phone && !CheckUserInfo.Phone_in_use(phonenumber.Text.ToString(),conn) && CheckUserInfo.Validate_Phone_Number(phonenumber.Text.ToString())) && 
             //    CheckUserInfo.Validate_Age(age.Text.ToString()) != -1 && CheckUserInfo.Validate_Password(password.Text.ToString()))
-            
+            conn.Open();
             bool valid = true;
-
+            
             if (username.Text != user_name)
                 valid &= !CheckUserInfo.Username_in_use(username.Text, conn);
 
@@ -74,7 +74,7 @@ namespace SW_Project
 
             valid &= CheckUserInfo.Validate_Age(age.Text) != -1;
             valid &= CheckUserInfo.Validate_Password(password.Text);
-
+            conn.Close();
             if (valid)
             {
                 using (OracleConnection conn = new OracleConnection(ordb))
@@ -83,12 +83,12 @@ namespace SW_Project
                              SET Username = :username, Email = :email, Password = :password, 
                                  PhoneNumber = :phone, Age = :age 
                              WHERE UserId = :userId";
-
+                    conn.Open();
                     OracleCommand cmd = new OracleCommand(query, conn);
-                    cmd.Parameters.Add(":username", OracleDbType.Varchar2).Value = username.Text;
-                    cmd.Parameters.Add(":email", OracleDbType.Varchar2).Value = email.Text;
-                    cmd.Parameters.Add(":password", OracleDbType.Varchar2).Value = password.Text;
-                    cmd.Parameters.Add(":phone", OracleDbType.Varchar2).Value = phonenumber.Text;
+                    cmd.Parameters.Add(":username", OracleDbType.Varchar2).Value = username.Text.ToString();
+                    cmd.Parameters.Add(":email", OracleDbType.Varchar2).Value = email.Text.ToString();
+                    cmd.Parameters.Add(":password", OracleDbType.Varchar2).Value = password.Text.ToString();
+                    cmd.Parameters.Add(":phone", OracleDbType.Varchar2).Value = phonenumber.Text.ToString();
                     cmd.Parameters.Add(":age", OracleDbType.Int32).Value = int.Parse(age.Text);
                     cmd.Parameters.Add(":userId", OracleDbType.Int32).Value = cur_user_id;
 
@@ -98,12 +98,12 @@ namespace SW_Project
                     else
                         MessageBox.Show("No changes were made.");
                 }
+                Manage_User_Load(sender, e);
             }
             else
             {
                 MessageBox.Show("Error Occured");
             }
-            conn.Close();
         }
     }
 }
