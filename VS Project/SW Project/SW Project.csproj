@@ -56,6 +56,7 @@
       <DependentUpon>AddScheduleForm.cs</DependentUpon>
     </Compile>
     <Compile Include="CheckUserInfo.cs" />
+    <Compile Include="CurrUser.cs" />
     <Compile Include="DeleteUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -80,6 +81,12 @@
     <Compile Include="AddAdmin.Designer.cs">
       <DependentUpon>AddAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginPage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginPage.Designer.cs">
+      <DependentUpon>LoginPage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Manage_User.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,6 +95,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+
     <Compile Include="UpdateDeleteScheduleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +105,13 @@
     <EmbeddedResource Include="AddScheduleForm.resx">
       <DependentUpon>AddScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
+
+    <Compile Include="view_history.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="view_history.Designer.cs">
+      <DependentUpon>view_history.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="AdminForm.resx">
       <DependentUpon>AdminForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -118,8 +133,13 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+
     <EmbeddedResource Include="UpdateDeleteScheduleForm.resx">
       <DependentUpon>UpdateDeleteScheduleForm.cs</DependentUpon>
+</EmbeddedResource>
+    <EmbeddedResource Include="view_history.resx">
+      <DependentUpon>view_history.cs</DependentUpon>
+
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
