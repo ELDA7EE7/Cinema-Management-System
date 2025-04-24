@@ -21,32 +21,6 @@ namespace SW_Project
             InitializeComponent();
         }
 
-        private void btnLoadSchedule_Click(object sender, EventArgs e)
-        {
-            using (OracleConnection conn = new OracleConnection(constr))
-            {
-                string selectCmd = "SELECT * FROM MOVIE_SCHEDULE WHERE SCHEDULE_ID = :schedId";
-                OracleCommand cmd = new OracleCommand(selectCmd, conn);
-                cmd.Parameters.Add("schedId", Convert.ToInt32(txtScheduleId.Text));
-
-                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
-                DataSet ds = new DataSet();
-                adapter.Fill(ds);
-
-                if (ds.Tables[0].Rows.Count > 0)
-                {
-                    txtMovieId.Text = ds.Tables[0].Rows[0]["MOVIEID"].ToString();
-                    dtpScreenDate.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["SCREEN_DATE"]);
-                    dtpStartTime.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["START_TIME"]);
-                    dtpEndTime.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["END_TIME"]);
-                }
-                else
-                {
-                    MessageBox.Show("Schedule not found!");
-                }
-            }
-        }
-
         private void btnUpdateSchedule_Click(object sender, EventArgs e)
         {
             using (OracleConnection conn = new OracleConnection(constr))
@@ -77,7 +51,34 @@ namespace SW_Project
             }
         }
 
-        private void btnDeleteSchedule_Click(object sender, EventArgs e)
+
+        private void btnLoadSchedule_Click_1(object sender, EventArgs e)
+        {
+            using (OracleConnection conn = new OracleConnection(constr))
+            {
+                string selectCmd = "SELECT * FROM MOVIE_SCHEDULE WHERE SCHEDULE_ID = :schedId";
+                OracleCommand cmd = new OracleCommand(selectCmd, conn);
+                cmd.Parameters.Add("schedId", Convert.ToInt32(txtScheduleId.Text));
+
+                OracleDataAdapter adapter = new OracleDataAdapter(cmd);
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+
+                if (ds.Tables[0].Rows.Count > 0)
+                {
+                    txtMovieId.Text = ds.Tables[0].Rows[0]["MOVIEID"].ToString();
+                    dtpScreenDate.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["SCREEN_DATE"]);
+                    dtpStartTime.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["START_TIME"]);
+                    dtpEndTime.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["END_TIME"]);
+                }
+                else
+                {
+                    MessageBox.Show("Schedule not found!");
+                }
+            }
+        }
+
+        private void btnDeleteSchedule_Click_1(object sender, EventArgs e)
         {
             using (OracleConnection conn = new OracleConnection(constr))
             {

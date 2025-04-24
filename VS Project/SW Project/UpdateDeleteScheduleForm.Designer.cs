@@ -51,7 +51,7 @@
             this.txtScheduleId.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtScheduleId.Location = new System.Drawing.Point(161, 81);
             this.txtScheduleId.Name = "txtScheduleId";
-            this.txtScheduleId.Size = new System.Drawing.Size(200, 29);
+            this.txtScheduleId.Size = new System.Drawing.Size(200, 25);
             this.txtScheduleId.TabIndex = 1;
             // 
             // btnLoadSchedule
@@ -67,13 +67,14 @@
             this.btnLoadSchedule.TabIndex = 2;
             this.btnLoadSchedule.Text = "Load";
             this.btnLoadSchedule.UseVisualStyleBackColor = false;
+            this.btnLoadSchedule.Click += new System.EventHandler(this.btnLoadSchedule_Click_1);
             // 
             // txtMovieId
             // 
             this.txtMovieId.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMovieId.Location = new System.Drawing.Point(162, 130);
             this.txtMovieId.Name = "txtMovieId";
-            this.txtMovieId.Size = new System.Drawing.Size(200, 29);
+            this.txtMovieId.Size = new System.Drawing.Size(200, 25);
             this.txtMovieId.TabIndex = 3;
             // 
             // dtpScreenDate
@@ -82,7 +83,7 @@
             this.dtpScreenDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpScreenDate.Location = new System.Drawing.Point(162, 183);
             this.dtpScreenDate.Name = "dtpScreenDate";
-            this.dtpScreenDate.Size = new System.Drawing.Size(200, 29);
+            this.dtpScreenDate.Size = new System.Drawing.Size(200, 25);
             this.dtpScreenDate.TabIndex = 4;
             // 
             // dtpStartTime
@@ -92,7 +93,7 @@
             this.dtpStartTime.Location = new System.Drawing.Point(162, 233);
             this.dtpStartTime.Name = "dtpStartTime";
             this.dtpStartTime.ShowUpDown = true;
-            this.dtpStartTime.Size = new System.Drawing.Size(200, 29);
+            this.dtpStartTime.Size = new System.Drawing.Size(200, 25);
             this.dtpStartTime.TabIndex = 5;
             // 
             // dtpEndTime
@@ -102,7 +103,7 @@
             this.dtpEndTime.Location = new System.Drawing.Point(162, 277);
             this.dtpEndTime.Name = "dtpEndTime";
             this.dtpEndTime.ShowUpDown = true;
-            this.dtpEndTime.Size = new System.Drawing.Size(200, 29);
+            this.dtpEndTime.Size = new System.Drawing.Size(200, 25);
             this.dtpEndTime.TabIndex = 6;
             // 
             // btnUpdateSchedule
@@ -133,6 +134,7 @@
             this.btnDeleteSchedule.TabIndex = 8;
             this.btnDeleteSchedule.Text = "Delete";
             this.btnDeleteSchedule.UseVisualStyleBackColor = false;
+            this.btnDeleteSchedule.Click += new System.EventHandler(this.btnDeleteSchedule_Click_1);
             // 
             // lblScheduleId
             // 
@@ -140,7 +142,7 @@
             this.lblScheduleId.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScheduleId.Location = new System.Drawing.Point(50, 83);
             this.lblScheduleId.Name = "lblScheduleId";
-            this.lblScheduleId.Size = new System.Drawing.Size(105, 23);
+            this.lblScheduleId.Size = new System.Drawing.Size(79, 17);
             this.lblScheduleId.TabIndex = 9;
             this.lblScheduleId.Text = "Schedule ID:";
             // 
@@ -150,7 +152,7 @@
             this.lblMovieId.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblMovieId.Location = new System.Drawing.Point(50, 133);
             this.lblMovieId.Name = "lblMovieId";
-            this.lblMovieId.Size = new System.Drawing.Size(82, 23);
+            this.lblMovieId.Size = new System.Drawing.Size(63, 17);
             this.lblMovieId.TabIndex = 10;
             this.lblMovieId.Text = "Movie ID:";
             // 
@@ -160,7 +162,7 @@
             this.lblScreenDate.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblScreenDate.Location = new System.Drawing.Point(50, 183);
             this.lblScreenDate.Name = "lblScreenDate";
-            this.lblScreenDate.Size = new System.Drawing.Size(106, 23);
+            this.lblScreenDate.Size = new System.Drawing.Size(81, 17);
             this.lblScreenDate.TabIndex = 11;
             this.lblScreenDate.Text = "Screen Date:";
             // 
@@ -170,7 +172,7 @@
             this.lblStartTime.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblStartTime.Location = new System.Drawing.Point(50, 233);
             this.lblStartTime.Name = "lblStartTime";
-            this.lblStartTime.Size = new System.Drawing.Size(91, 23);
+            this.lblStartTime.Size = new System.Drawing.Size(70, 17);
             this.lblStartTime.TabIndex = 12;
             this.lblStartTime.Text = "Start Time:";
             // 
@@ -180,7 +182,7 @@
             this.lblEndTime.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEndTime.Location = new System.Drawing.Point(50, 283);
             this.lblEndTime.Name = "lblEndTime";
-            this.lblEndTime.Size = new System.Drawing.Size(85, 23);
+            this.lblEndTime.Size = new System.Drawing.Size(65, 17);
             this.lblEndTime.TabIndex = 13;
             this.lblEndTime.Text = "End Time:";
             // 
@@ -201,7 +203,7 @@
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(20, 18);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(280, 32);
+            this.lblTitle.Size = new System.Drawing.Size(220, 25);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Update/Delete Schedule";
             // 
