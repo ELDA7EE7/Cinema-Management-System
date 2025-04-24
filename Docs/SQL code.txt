@@ -43,3 +43,42 @@ CREATE TABLE Booking (
     FOREIGN KEY (UserID) REFERENCES Users(UserID),
     FOREIGN KEY (MovieID) REFERENCES Movie(MovieID)
 );
+
+CREATE TABLE MOVIE_SCHEDULE (
+    SCHEDULE_ID NUMBER PRIMARY KEY,
+    MOVIEID NUMBER NOT NULL,
+    SCREEN_DATE DATE NOT NULL,
+    START_TIME TIMESTAMP NOT NULL,
+    END_TIME TIMESTAMP NOT NULL,
+    FOREIGN KEY (MOVIEID) REFERENCES MOVIE(MOVIEID),
+    CONSTRAINT chk_time CHECK (END_TIME > START_TIME)
+);
+
+CREATE OR REPLACE PROCEDURE SearchMovies (
+    p_search_term IN VARCHAR2,
+    p_results OUT SYS_REFCURSOR
+)
+AS
+BEGIN
+    OPEN p_results FOR
+        SELECT MovieID, Title, Genre, Director, ReleaseDate, Rating, TicketCost
+        FROM Movie
+        WHERE LOWER(Title) LIKE '%' || LOWER(p_search_term) || '%'
+           OR LOWER(Genre) LIKE '%' || LOWER(p_search_term) || '%';
+END;
+
+CREATE OR REPLACE PROCEDURE SearchUserById (
+    p_user_id IN NUMBER,
+    p_email OUT VARCHAR2,
+    p_username OUT VARCHAR2,
+    p_phone OUT VARCHAR2,
+    p_age OUT NUMBER,
+    p_is_admin OUT NUMBER
+)
+AS
+BEGIN
+    SELECT Email, Username, PhoneNumber, Age, isAdmin
+    INTO p_email, p_username, p_phone, p_age, p_is_admin
+    FROM Users
+    WHERE UserID = p_user_id;
+END;
