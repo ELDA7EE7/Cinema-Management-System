@@ -16,7 +16,8 @@ namespace SW_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new view_history());
+            Application.Run(new UpdateDeleteScheduleForm());
+
         }
     }
 }
