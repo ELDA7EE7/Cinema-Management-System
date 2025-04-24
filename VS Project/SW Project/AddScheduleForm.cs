@@ -24,11 +24,12 @@ namespace SW_Project
         private void btnAddSchedule_Click(object sender, EventArgs e)
         {
             OracleConnection conn = new OracleConnection(constr);
-            
-                try
-                {
-                    // First, check if the movie exists
+
+            try
+            {
+                // First, check if the movie exists
                 string checkMovieCmd = "SELECT COUNT(1) FROM MOVIE WHERE MOVIEID = :movieId";
+                conn.Open();
                 OracleCommand checkCmd = new OracleCommand(checkMovieCmd, conn);
                 checkCmd.Parameters.Add("movieId", Convert.ToInt32(txtMovieId.Text));
 
@@ -39,26 +40,39 @@ namespace SW_Project
                     MessageBox.Show("Error: Movie ID does not exist in the database.");
                     return;
                 }
-                string insertCmd = @"INSERT INTO MOVIE_SCHEDULE (SCHEDULE_ID, MOVIEID, SCREEN_DATE, START_TIME, END_TIME)
-                                     VALUES (SELECT NVL(MAX(SCHEDULE_ID), 0) + 1, :movieId, :screenDate, :startTime, :endTime)";
+
+                // Get the next schedule ID first
+                string getNextIdCmd = "SELECT NVL(MAX(SCHEDULE_ID), 0) + 1 FROM MOVIE_SCHEDULE";
+                OracleCommand idCmd = new OracleCommand(getNextIdCmd, conn);
+                int nextId = Convert.ToInt32(idCmd.ExecuteScalar());
+
+                // Then insert with all parameters
+                string insertCmd = @"INSERT INTO MOVIE_SCHEDULE 
+                            (SCHEDULE_ID, MOVIEID, SCREEN_DATE, START_TIME, END_TIME)
+                            VALUES 
+                            (:scheduleId, :movieId, :screenDate, :startTime, :endTime)";
 
                 OracleCommand cmd = new OracleCommand(insertCmd, conn);
+                cmd.Parameters.Add("scheduleId", nextId);
                 cmd.Parameters.Add("movieId", Convert.ToInt32(txtMovieId.Text));
                 cmd.Parameters.Add("screenDate", dtpScreenDate.Value.Date);
                 cmd.Parameters.Add("startTime", dtpStartTime.Value);
                 cmd.Parameters.Add("endTime", dtpEndTime.Value);
 
-               
-                    conn.Open();
-                    int rows = cmd.ExecuteNonQuery();
-                    if (rows > 0)
-                        MessageBox.Show("Schedule Added Successfully!");
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show("Error: " + ex.Message);
-                }
-            
+                int rows = cmd.ExecuteNonQuery();
+                if (rows > 0)
+                    MessageBox.Show("Schedule Added Successfully!");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+                // Consider logging the full error details
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
         }
 
     }
