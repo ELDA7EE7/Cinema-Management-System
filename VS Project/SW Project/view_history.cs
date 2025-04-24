@@ -15,8 +15,8 @@ namespace SW_Project
     {
 
         string ordb = "Data source=orcl;User Id=scott;Password=tiger;";
-        OracleConnection conn;
-        int cur_user_id = CurrUser.UserId;
+        //int cur_user_id = CurrUser.UserId;
+        int cur_user_id = 1;
 
         public view_history()
         {
@@ -30,8 +30,6 @@ namespace SW_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
-            // Replace this with the actual user ID in your app
-            int cur_user_id = CurrUser.UserId;
 
             if (!int.TryParse(txt_price.Text, out int maxPrice))
             {
@@ -39,13 +37,12 @@ namespace SW_Project
                 return;
             }
 
-            string ordb = "Data source=orcl;User Id=scott;Password=tiger;";
             using (OracleConnection conn = new OracleConnection(ordb))
             {
                 string query = @"SELECT M.Title, B.BookingDate, B.Quantity, B.TicketPrice, (B.Quantity * B.TicketPrice) AS TotalPrice
                          FROM Booking B
                          JOIN Movie M ON B.MovieID = M.MovieID
-                         WHERE B.UserID = :userId AND (B.Quantity * B.TicketPrice) <= :maxPrice";
+                         WHERE B.UserID = :userId AND (B.Quantity * B.TicketPrice) >= :maxPrice";
 
                 OracleCommand cmd = new OracleCommand(query, conn);
                 cmd.Parameters.Add(":userId", OracleDbType.Int32).Value = cur_user_id;
