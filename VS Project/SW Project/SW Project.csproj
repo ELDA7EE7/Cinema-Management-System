@@ -101,6 +101,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Show_Movie.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Show_Movie.Designer.cs">
+      <DependentUpon>Show_Movie.cs</DependentUpon>
+    </Compile>
     <Compile Include="UpdateDeleteScheduleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +155,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Show_Movie.resx">
+      <DependentUpon>Show_Movie.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdateDeleteScheduleForm.resx">
       <DependentUpon>UpdateDeleteScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
