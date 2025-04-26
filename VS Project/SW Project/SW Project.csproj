@@ -49,6 +49,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Register.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Register.Designer.cs">
+      <DependentUpon>Register.cs</DependentUpon>
+    </Compile>
+    <Compile Include=".Designer.cs" />
     <Compile Include="AddScheduleForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -149,6 +156,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Register.resx">
+      <DependentUpon>Register.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UpdateDeleteScheduleForm.resx">
       <DependentUpon>UpdateDeleteScheduleForm.cs</DependentUpon>
     </EmbeddedResource>
