@@ -7,7 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
+using Oracle.DataAccess.Client;
+using Oracle.DataAccess.Types;
 namespace SW_Project
 {
     public partial class Show_Movie : Form
@@ -19,40 +20,7 @@ namespace SW_Project
         {
             InitializeComponent();
             conn = new OracleConnection(ordb);
-            conn.Open();
             this.movieID = movieID;
-        }
-
-        private void label1_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                OracleCommand command = new OracleCommand();
-                command.Connection = conn;
-                command.CommandText = "GETMOVIE";
-                command.CommandType = CommandType.StoredProcedure;
-                command.Parameters.Add("p_MovieID", this.movieID);
-                command.Parameters.Add("p_Result", OracleDbType.RefCursor, ParameterDirection.Output);
-
-                OracleDataReader reader = command.ExecuteReader();
-
-                while (reader.Read())
-                {
-                    DateTime screenDate = reader.GetDateTime(0);
-                    TimeSpan startTime = reader.GetTimeSpan(1);
-                    TimeSpan endTime = reader.GetTimeSpan(2);
-
-                    string display = screenDate.ToString("yyyy-MM-dd")
-                        + " | " + startTime.ToString(@"hh\:mm")
-                        + " - " + endTime.ToString(@"hh\:mm");
-                    comboBox1.Items.Add(display);
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.ToString());
-                MessageBox.Show("Error: " + ex.Message);
-            }
         }
 
         private void label1_Click_1(object sender, EventArgs e)
@@ -62,13 +30,15 @@ namespace SW_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
+            conn.Open();
+
             string selectedShow = comboBox1.SelectedItem.ToString();
 
             string[] parts = selectedShow.Split(' ');
             DateTime screenDate = DateTime.Parse(parts[0]);
             TimeSpan startTime = TimeSpan.Parse(parts[1]);
 
-            int countRequired = int.Parse(textBox1.Text);
+            int countRequired = Convert.ToInt32(tickets_num_up_down.Value);
 
             OracleCommand checkCommand = new OracleCommand();
             checkCommand.Connection = conn;
@@ -98,7 +68,7 @@ namespace SW_Project
                 updateCommand.Parameters.Add("sdate", screenDate);
                 updateCommand.Parameters.Add("stime", startTime);
                 updateCommand.ExecuteNonQuery();
-
+                Show_Movie_Load_1(sender, e);
                 MessageBox.Show("Booking successful!");
             }
             else
@@ -106,7 +76,96 @@ namespace SW_Project
                 string msg = "Not enough number of tickets, max is " + availableTickets.ToString();
                 MessageBox.Show(msg);
             }
+            conn.Close();
         }
-       
+
+        private void Show_Movie_Load_1(object sender, EventArgs e)
+        {
+            conn.Open();
+
+            try
+            {
+                // First get the movie details
+                OracleCommand command = new OracleCommand();
+                command.Connection = conn;
+                command.CommandText = "GETMOVIE";
+                command.CommandType = CommandType.StoredProcedure;
+                command.Parameters.Add("p_MovieID", OracleDbType.Int32).Value = this.movieID;
+                command.Parameters.Add("p_Result", OracleDbType.RefCursor, ParameterDirection.Output);
+
+                OracleDataReader reader = command.ExecuteReader();
+
+                bool firstRow = true;
+                while (reader.Read())
+                {
+                    // On first row, get movie details and display them
+                    if (firstRow)
+                    {
+                        // Movie details (columns 0-8)
+                        string title = reader.GetString(0);
+                        DateTime releaseDate = reader.GetDateTime(1);
+                        string description = reader.IsDBNull(2) ? "" : reader.GetString(2);
+                        int duration = 0;
+                        try
+                        {
+                            duration = reader.GetInt32(3); // Try direct INT read
+                        }
+                        catch (InvalidCastException)
+                        {
+                            // If direct cast fails, try converting from other types
+                            object durationValue = reader.GetValue(3);
+                            duration = Convert.ToInt32(durationValue);
+                        }
+                        decimal rating = reader.IsDBNull(4) ? 0 : reader.GetDecimal(4);
+                        decimal ticketCost = reader.GetDecimal(5);
+                        string director = reader.GetString(6);
+                        string genre = reader.IsDBNull(7) ? "Unknown" : reader.GetString(7);
+
+                        // Display movie info in your form controls
+                        lblTitle.Text = title;
+                        lblDirector.Text = "Director: " + director;
+                        lblGenre.Text = "Genre: " + genre;
+                        lblRating.Text = "Rating: " + rating.ToString("0.0");
+                        lblDuration.Text = "Duration: " + duration + " mins";
+                        lblPrice.Text = "Price: $" + ticketCost.ToString("0.00");
+                        txtDescription.Text = description;
+
+                        firstRow = false;
+                    }
+
+                    if (!reader.IsDBNull(8)) 
+                    {
+                        DateTime startTime = reader.GetDateTime(8);
+                        int duration = 0;
+                        // If direct cast fails, try converting from other types
+                        object durationValue = reader.GetValue(3);
+                        duration = Convert.ToInt32(durationValue);
+                        
+                        DateTime endTime = startTime.AddMinutes(duration);
+
+                        string display = startTime.ToString("yyyy-MM-dd | HH:mm") +
+                                        " - " + endTime.ToString("HH:mm");
+                        comboBox1.Items.Add(display);
+                    }
+                    int seatsAv = Convert.ToInt32(reader.GetValue(9));
+                    seatsAvailable.Text ="Seats Available: " + seatsAv.ToString();
+                }
+
+                reader.Close();
+
+                if (comboBox1.Items.Count == 0)
+                {
+                    comboBox1.Items.Add("No schedules available");
+                    comboBox1.Enabled = false;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                MessageBox.Show("Error loading movie data: " + ex.Message, "Error",
+                              MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            conn.Close();
+        }
     }
 }

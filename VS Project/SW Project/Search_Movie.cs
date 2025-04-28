@@ -36,10 +36,10 @@ namespace SW_Project
             {
                 int movieId = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
 
-                // Movie_form movieDetailsForm = new Movie_form(movieId);
-                // movieDetailsForm.Show();
-                // this.Hide();
-                //conn.Close();
+                Show_Movie anotherForm = new Show_Movie(movieId);
+                anotherForm.Show();
+                this.Hide();
+                conn.Close();
             }
         }
 
@@ -78,7 +78,7 @@ namespace SW_Project
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Show_Movie anotherForm = new Show_Movie(movieID);
+            Manage_User anotherForm = new Manage_User();
             anotherForm.Show();
             this.Hide();
             conn.Close();
