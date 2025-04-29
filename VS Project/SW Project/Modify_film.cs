@@ -245,6 +245,11 @@ namespace SW_Project
         {
 
         }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 
 }
