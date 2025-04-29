@@ -17,6 +17,7 @@ namespace SW_Project
     {
         string ordb = "Data source=orcl;User Id=scott;Password=tiger;";
         OracleConnection conn;
+        int movieID;
         public Search_Movie()
         {
             InitializeComponent();
@@ -35,10 +36,10 @@ namespace SW_Project
             {
                 int movieId = int.Parse(dataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
 
-                // Movie_form movieDetailsForm = new Movie_form(movieId);
-                // movieDetailsForm.Show();
-                // this.Hide();
-                //conn.Close();
+                Show_Movie anotherForm = new Show_Movie(movieId);
+                anotherForm.Show();
+                this.Hide();
+                conn.Close();
             }
         }
 
@@ -60,6 +61,7 @@ namespace SW_Project
                 {
                     Console.WriteLine(reader[0]);
                     int movie_id = Convert.ToInt32(reader[0]);
+                    movieID = movie_id;
                     string name = Convert.ToString(reader[1]);
                     int rating = Convert.ToInt32(reader[5]);
                     int ticket_cost = Convert.ToInt32(reader[6]);
@@ -78,7 +80,7 @@ namespace SW_Project
         {
             Manage_User anotherForm = new Manage_User();
             anotherForm.Show();
-            this.Hide();
+            this.Close();
             conn.Close();
         }
     }
