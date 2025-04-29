@@ -131,9 +131,11 @@ namespace SW_Project
             }
         }
 
-        private void panelForm_Paint(object sender, PaintEventArgs e)
+        private void Back_To_Admin(object sender, EventArgs e)
         {
-
+            AdminForm adminForm = new AdminForm();
+            adminForm.Show();
+            this.Close();
         }
     }
 }

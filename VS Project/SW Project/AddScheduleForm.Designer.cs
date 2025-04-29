@@ -40,6 +40,7 @@
             this.panelHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelForm = new System.Windows.Forms.Panel();
+            this.Back_to_Admin = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             this.panelForm.SuspendLayout();
             this.SuspendLayout();
@@ -52,7 +53,7 @@
             this.txtMovieId.Location = new System.Drawing.Point(180, 45);
             this.txtMovieId.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtMovieId.Name = "txtMovieId";
-            this.txtMovieId.Size = new System.Drawing.Size(250, 30);
+            this.txtMovieId.Size = new System.Drawing.Size(250, 26);
             this.txtMovieId.TabIndex = 1;
             // 
             // dtpScreenDate
@@ -63,7 +64,7 @@
             this.dtpScreenDate.Location = new System.Drawing.Point(180, 98);
             this.dtpScreenDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpScreenDate.Name = "dtpScreenDate";
-            this.dtpScreenDate.Size = new System.Drawing.Size(250, 30);
+            this.dtpScreenDate.Size = new System.Drawing.Size(250, 26);
             this.dtpScreenDate.TabIndex = 2;
             // 
             // dtpStartTime
@@ -74,7 +75,7 @@
             this.dtpStartTime.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpStartTime.Name = "dtpStartTime";
             this.dtpStartTime.ShowUpDown = true;
-            this.dtpStartTime.Size = new System.Drawing.Size(250, 30);
+            this.dtpStartTime.Size = new System.Drawing.Size(250, 26);
             this.dtpStartTime.TabIndex = 3;
             // 
             // dtpEndTime
@@ -85,7 +86,7 @@
             this.dtpEndTime.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dtpEndTime.Name = "dtpEndTime";
             this.dtpEndTime.ShowUpDown = true;
-            this.dtpEndTime.Size = new System.Drawing.Size(250, 30);
+            this.dtpEndTime.Size = new System.Drawing.Size(250, 26);
             this.dtpEndTime.TabIndex = 4;
             // 
             // btnAddSchedule
@@ -111,7 +112,7 @@
             this.lblMovieId.Location = new System.Drawing.Point(30, 47);
             this.lblMovieId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMovieId.Name = "lblMovieId";
-            this.lblMovieId.Size = new System.Drawing.Size(84, 23);
+            this.lblMovieId.Size = new System.Drawing.Size(69, 19);
             this.lblMovieId.TabIndex = 7;
             this.lblMovieId.Text = "Movie ID:";
             // 
@@ -122,7 +123,7 @@
             this.lblScreenDate.Location = new System.Drawing.Point(30, 98);
             this.lblScreenDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblScreenDate.Name = "lblScreenDate";
-            this.lblScreenDate.Size = new System.Drawing.Size(106, 23);
+            this.lblScreenDate.Size = new System.Drawing.Size(87, 19);
             this.lblScreenDate.TabIndex = 8;
             this.lblScreenDate.Text = "Screen Date:";
             // 
@@ -133,7 +134,7 @@
             this.lblStartTime.Location = new System.Drawing.Point(30, 149);
             this.lblStartTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblStartTime.Name = "lblStartTime";
-            this.lblStartTime.Size = new System.Drawing.Size(92, 23);
+            this.lblStartTime.Size = new System.Drawing.Size(77, 19);
             this.lblStartTime.TabIndex = 9;
             this.lblStartTime.Text = "Start Time:";
             // 
@@ -144,13 +145,14 @@
             this.lblEndTime.Location = new System.Drawing.Point(37, 205);
             this.lblEndTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblEndTime.Name = "lblEndTime";
-            this.lblEndTime.Size = new System.Drawing.Size(85, 23);
+            this.lblEndTime.Size = new System.Drawing.Size(70, 19);
             this.lblEndTime.TabIndex = 10;
             this.lblEndTime.Text = "End Time:";
             // 
             // panelHeader
             // 
             this.panelHeader.BackColor = System.Drawing.Color.SteelBlue;
+            this.panelHeader.Controls.Add(this.Back_to_Admin);
             this.panelHeader.Controls.Add(this.lblTitle);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
@@ -165,7 +167,7 @@
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(20, 20);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(192, 38);
+            this.lblTitle.Size = new System.Drawing.Size(151, 30);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Add Schedule";
             // 
@@ -188,9 +190,19 @@
             this.panelForm.Size = new System.Drawing.Size(500, 380);
             this.panelForm.TabIndex = 12;
             // 
+            // Back_to_Admin
+            // 
+            this.Back_to_Admin.Location = new System.Drawing.Point(363, 26);
+            this.Back_to_Admin.Name = "Back_to_Admin";
+            this.Back_to_Admin.Size = new System.Drawing.Size(75, 23);
+            this.Back_to_Admin.TabIndex = 1;
+            this.Back_to_Admin.Text = "Back";
+            this.Back_to_Admin.UseVisualStyleBackColor = true;
+            this.Back_to_Admin.Click += new System.EventHandler(this.Back_to_Admin_Click);
+            // 
             // AddScheduleForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.ClientSize = new System.Drawing.Size(500, 450);
@@ -224,5 +236,6 @@
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel panelForm;
+        private System.Windows.Forms.Button Back_to_Admin;
     }
 }

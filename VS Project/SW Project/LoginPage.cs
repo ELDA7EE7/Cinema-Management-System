@@ -57,15 +57,19 @@ namespace SW_Project
 
                 CurrUser.LogIn(usernameText.Text, userId, isAdmin);
 
-                MessageBox.Show("Login successful!");
                 if (isAdmin)
                 { //goto admin homepage
+                    AdminForm adminForm = new AdminForm();
+                    adminForm.Show();
 
                 }
                 else
                 { //user homepage
-
+                    Manage_User manage_User = new Manage_User();
+                    manage_User.Show();
                 }
+                CurrUser.LogIn(usernameText.Text,userId, isAdmin);
+                this.Close();
             }
             else
             {
@@ -74,19 +78,11 @@ namespace SW_Project
             }
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Go_to_Register_Link_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-
-        }
-
-        private void label2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
+            Register register = new Register();
+            register.Show();
+            this.Close();
         }
     }
 }

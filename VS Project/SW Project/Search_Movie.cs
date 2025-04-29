@@ -25,11 +25,6 @@ namespace SW_Project
             conn.Open();
         }
 
-        private void Search_Movie_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (e.ColumnIndex == dataGridView1.ColumnCount - 1 && e.RowIndex >= 0)
@@ -38,8 +33,8 @@ namespace SW_Project
 
                 Show_Movie anotherForm = new Show_Movie(movieId);
                 anotherForm.Show();
-                this.Hide();
                 conn.Close();
+                this.Close();
             }
         }
 
@@ -80,8 +75,8 @@ namespace SW_Project
         {
             Manage_User anotherForm = new Manage_User();
             anotherForm.Show();
-            this.Close();
             conn.Close();
+            this.Close();
         }
     }
 }

@@ -137,7 +137,9 @@ namespace SW_Project
 
         private void Back_to_AdminMenu(object sender, EventArgs e)
         {
-
+            AdminForm adminForm = new AdminForm();
+            adminForm.Show();
+            this.Close();
         }
     }
 }
