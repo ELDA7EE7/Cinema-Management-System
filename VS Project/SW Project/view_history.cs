@@ -16,7 +16,7 @@ namespace SW_Project
 
         string ordb = "Data source=orcl;User Id=scott;Password=tiger;";
         //int cur_user_id = CurrUser.UserId;
-        int cur_user_id = 1;
+        int cur_user_id = CurrUser.UserId;
 
         public view_history()
         {
@@ -39,10 +39,10 @@ namespace SW_Project
 
             using (OracleConnection conn = new OracleConnection(ordb))
             {
-                string query = @"SELECT M.Title, B.BookingDate, B.Quantity, B.TicketPrice, (B.Quantity * B.TicketPrice) AS TotalPrice
+                string query = @"SELECT M.Title, B.BookingDate, B.Quantity, B.TicketPrice, B.TOTALAMOUNT
                          FROM Booking B
                          JOIN Movie M ON B.MovieID = M.MovieID
-                         WHERE B.UserID = :userId AND (B.Quantity * B.TicketPrice) >= :maxPrice";
+                         WHERE B.UserID = :userId AND B.TOTALAMOUNT >= :maxPrice";
 
                 OracleCommand cmd = new OracleCommand(query, conn);
                 cmd.Parameters.Add(":userId", OracleDbType.Int32).Value = cur_user_id;
@@ -56,7 +56,7 @@ namespace SW_Project
 
                 foreach (DataRow row in dt.Rows)
                 {
-                    dataGridView1.Rows.Add(row["Title"], row["BookingDate"], row["Quantity"], row["TicketPrice"], row["TotalPrice"]);
+                    dataGridView1.Rows.Add(row["Title"], row["BookingDate"], row["Quantity"], row["TicketPrice"], row["TOTALAMOUNT"]);
                 }
             }
         }
@@ -102,6 +102,13 @@ namespace SW_Project
                     row["TotalPrice"]
                 );
             }
+        }
+
+        private void Back_to_User_Form(object sender, EventArgs e)
+        {
+            Manage_User manage_User = new Manage_User();
+            manage_User.Show();
+            this.Close();
         }
     }
 }

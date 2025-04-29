@@ -43,6 +43,7 @@
             this.lblEndTime = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -189,6 +190,7 @@
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.SteelBlue;
+            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.lblTitle);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -206,6 +208,16 @@
             this.lblTitle.Size = new System.Drawing.Size(220, 25);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Update/Delete Schedule";
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(413, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Back";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Back_To_Admin);
             // 
             // UpdateDeleteScheduleForm
             // 
@@ -253,5 +265,6 @@
         private System.Windows.Forms.Label lblEndTime;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Button button1;
     }
 }

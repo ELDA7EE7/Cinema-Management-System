@@ -20,9 +20,23 @@ namespace SW_Project
         //test
         string ordb = "Data source=orcl;User Id=scott;Password=tiger;";
         OracleConnection conn;
-        int cur_user_id = 1;
+        int cur_user_id = CurrUser.UserId;
 
         string user_name, user_email, user_password, user_phone, user_age;
+
+        private void View_history_Button_Click(object sender, EventArgs e)
+        {
+            view_history view_History = new view_history();
+            view_History.Show();
+            this.Close();
+        }
+
+        private void SearchMoviesButton_Click(object sender, EventArgs e)
+        {
+            Search_Movie search_Movie = new Search_Movie();
+            search_Movie.Show();
+            this.Close();
+        }
 
         private void Manage_User_Load(object sender, EventArgs e)
         {

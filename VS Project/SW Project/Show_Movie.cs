@@ -102,7 +102,6 @@ namespace SW_Project
 
                 using (OracleCommand insertCmd = new OracleCommand(insertBookingSql, conn))
                 {
-                    CurrUser.UserId = 3; //remove this line <---------------
                     insertCmd.Parameters.Add("userId", OracleDbType.Int32).Value = CurrUser.UserId;
                     insertCmd.Parameters.Add("movieId", OracleDbType.Int32).Value = movieID;
                     insertCmd.Parameters.Add("quantity", OracleDbType.Int32).Value = countRequired;
@@ -270,6 +269,13 @@ namespace SW_Project
                 conn.Close();
             }
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            Search_Movie search_Movie = new Search_Movie();
+            search_Movie.Show();
+            this.Close();
         }
     }
 }

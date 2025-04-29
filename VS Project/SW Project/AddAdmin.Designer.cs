@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AddAdmin));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -43,56 +42,63 @@
             this.panelHeader = new System.Windows.Forms.Panel();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelForm = new System.Windows.Forms.Panel();
+            this.Back_to_Admin = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             this.panelForm.SuspendLayout();
             this.SuspendLayout();
-
+            // 
             // label1
+            // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(30, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(77, 19);
+            this.label1.Size = new System.Drawing.Size(74, 19);
             this.label1.TabIndex = 1;
             this.label1.Text = "Username:";
-
+            // 
             // label2
+            // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(30, 80);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(47, 19);
+            this.label2.Size = new System.Drawing.Size(46, 19);
             this.label2.TabIndex = 2;
             this.label2.Text = "Email:";
-
+            // 
             // label3
+            // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(30, 130);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(73, 19);
+            this.label3.Size = new System.Drawing.Size(71, 19);
             this.label3.TabIndex = 3;
             this.label3.Text = "Password:";
-
+            // 
             // label4
+            // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label4.Location = new System.Drawing.Point(30, 180);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(108, 19);
+            this.label4.Size = new System.Drawing.Size(107, 19);
             this.label4.TabIndex = 4;
             this.label4.Text = "Phone Number:";
-
+            // 
             // label5
+            // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label5.Location = new System.Drawing.Point(30, 230);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(38, 19);
+            this.label5.Size = new System.Drawing.Size(36, 19);
             this.label5.TabIndex = 5;
             this.label5.Text = "Age:";
-
+            // 
             // username_tb
+            // 
             this.username_tb.BackColor = System.Drawing.Color.White;
             this.username_tb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.username_tb.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -100,8 +106,9 @@
             this.username_tb.Name = "username_tb";
             this.username_tb.Size = new System.Drawing.Size(250, 25);
             this.username_tb.TabIndex = 6;
-
+            // 
             // email_tb
+            // 
             this.email_tb.BackColor = System.Drawing.Color.White;
             this.email_tb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.email_tb.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -109,8 +116,9 @@
             this.email_tb.Name = "email_tb";
             this.email_tb.Size = new System.Drawing.Size(250, 25);
             this.email_tb.TabIndex = 7;
-
+            // 
             // password_tb
+            // 
             this.password_tb.BackColor = System.Drawing.Color.White;
             this.password_tb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.password_tb.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -119,8 +127,9 @@
             this.password_tb.Size = new System.Drawing.Size(250, 25);
             this.password_tb.TabIndex = 8;
             this.password_tb.UseSystemPasswordChar = true;
-
+            // 
             // phone_tb
+            // 
             this.phone_tb.BackColor = System.Drawing.Color.White;
             this.phone_tb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.phone_tb.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -128,8 +137,9 @@
             this.phone_tb.Name = "phone_tb";
             this.phone_tb.Size = new System.Drawing.Size(250, 25);
             this.phone_tb.TabIndex = 9;
-
+            // 
             // age_tb
+            // 
             this.age_tb.BackColor = System.Drawing.Color.White;
             this.age_tb.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.age_tb.Font = new System.Drawing.Font("Segoe UI", 10F);
@@ -137,8 +147,9 @@
             this.age_tb.Name = "age_tb";
             this.age_tb.Size = new System.Drawing.Size(250, 25);
             this.age_tb.TabIndex = 10;
-
+            // 
             // add_button
+            // 
             this.add_button.BackColor = System.Drawing.Color.SeaGreen;
             this.add_button.FlatAppearance.BorderSize = 0;
             this.add_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -151,27 +162,31 @@
             this.add_button.Text = "Add Admin";
             this.add_button.UseVisualStyleBackColor = false;
             this.add_button.Click += new System.EventHandler(this.add_button_Click);
-
+            // 
             // panelHeader
+            // 
             this.panelHeader.BackColor = System.Drawing.Color.SteelBlue;
+            this.panelHeader.Controls.Add(this.Back_to_Admin);
             this.panelHeader.Controls.Add(this.lblTitle);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(500, 70);
             this.panelHeader.TabIndex = 12;
-
+            // 
             // lblTitle
+            // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(20, 20);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(127, 30);
+            this.lblTitle.Size = new System.Drawing.Size(126, 30);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Add Admin";
-
+            // 
             // panelForm
+            // 
             this.panelForm.BackColor = System.Drawing.Color.White;
             this.panelForm.Controls.Add(this.label1);
             this.panelForm.Controls.Add(this.username_tb);
@@ -190,8 +205,19 @@
             this.panelForm.Padding = new System.Windows.Forms.Padding(20);
             this.panelForm.Size = new System.Drawing.Size(500, 380);
             this.panelForm.TabIndex = 13;
-
+            // 
+            // Back_to_Admin
+            // 
+            this.Back_to_Admin.Location = new System.Drawing.Point(364, 26);
+            this.Back_to_Admin.Name = "Back_to_Admin";
+            this.Back_to_Admin.Size = new System.Drawing.Size(75, 23);
+            this.Back_to_Admin.TabIndex = 1;
+            this.Back_to_Admin.Text = "Back";
+            this.Back_to_Admin.UseVisualStyleBackColor = true;
+            this.Back_to_Admin.Click += new System.EventHandler(this.Back_to_Admin_Click);
+            // 
             // AddAdmin
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -199,7 +225,6 @@
             this.Controls.Add(this.panelForm);
             this.Controls.Add(this.panelHeader);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AddAdmin";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Add Admin";
@@ -208,6 +233,7 @@
             this.panelForm.ResumeLayout(false);
             this.panelForm.PerformLayout();
             this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -225,5 +251,6 @@
         private System.Windows.Forms.Panel panelHeader;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Panel panelForm;
+        private System.Windows.Forms.Button Back_to_Admin;
     }
 }

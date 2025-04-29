@@ -146,7 +146,6 @@
             this.Controls.Add(this.search_btn);
             this.Name = "Search_Movie";
             this.Text = "Search";
-            this.Load += new System.EventHandler(this.Search_Movie_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

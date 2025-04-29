@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AdminForm));
             this.add_admin_button = new System.Windows.Forms.Button();
             this.add_movie = new System.Windows.Forms.Button();
             this.add_schedule = new System.Windows.Forms.Button();
@@ -48,8 +47,9 @@
             this.panelMovie.SuspendLayout();
             this.panelSchedule.SuspendLayout();
             this.SuspendLayout();
-
+            // 
             // add_admin_button
+            // 
             this.add_admin_button.BackColor = System.Drawing.Color.SteelBlue;
             this.add_admin_button.FlatAppearance.BorderSize = 0;
             this.add_admin_button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -61,9 +61,10 @@
             this.add_admin_button.TabIndex = 0;
             this.add_admin_button.Text = "Add Admin";
             this.add_admin_button.UseVisualStyleBackColor = false;
-            this.add_admin_button.Click += new System.EventHandler(this.manage_user_Click);
-
+            this.add_admin_button.Click += new System.EventHandler(this.Add_Admin_Click);
+            // 
             // add_movie
+            // 
             this.add_movie.BackColor = System.Drawing.Color.SteelBlue;
             this.add_movie.FlatAppearance.BorderSize = 0;
             this.add_movie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -75,9 +76,10 @@
             this.add_movie.TabIndex = 1;
             this.add_movie.Text = "Add Movie";
             this.add_movie.UseVisualStyleBackColor = false;
-            this.add_movie.Click += new System.EventHandler(this.manage_movie_Click);
-
+            this.add_movie.Click += new System.EventHandler(this.Add_Movie_Click);
+            // 
             // add_schedule
+            // 
             this.add_schedule.BackColor = System.Drawing.Color.SteelBlue;
             this.add_schedule.FlatAppearance.BorderSize = 0;
             this.add_schedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -89,9 +91,10 @@
             this.add_schedule.TabIndex = 2;
             this.add_schedule.Text = "Add To Schedule";
             this.add_schedule.UseVisualStyleBackColor = false;
-            this.add_schedule.Click += new System.EventHandler(this.manage_schedule_Click);
-
+            this.add_schedule.Click += new System.EventHandler(this.Add_Schedule_Click);
+            // 
             // delete_user
+            // 
             this.delete_user.BackColor = System.Drawing.Color.IndianRed;
             this.delete_user.FlatAppearance.BorderSize = 0;
             this.delete_user.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -103,26 +106,30 @@
             this.delete_user.TabIndex = 3;
             this.delete_user.Text = "Delete User";
             this.delete_user.UseVisualStyleBackColor = false;
-
+            this.delete_user.Click += new System.EventHandler(this.delete_user_Click);
+            // 
             // label1
+            // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(20, 20);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(142, 21);
+            this.label1.Size = new System.Drawing.Size(144, 21);
             this.label1.TabIndex = 4;
             this.label1.Text = "User Management";
-
+            // 
             // label2
+            // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(20, 20);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(150, 21);
+            this.label2.Size = new System.Drawing.Size(157, 21);
             this.label2.TabIndex = 5;
             this.label2.Text = "Movie Management";
-
+            // 
             // update_Movie
+            // 
             this.update_Movie.BackColor = System.Drawing.Color.SeaGreen;
             this.update_Movie.FlatAppearance.BorderSize = 0;
             this.update_Movie.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -134,17 +141,20 @@
             this.update_Movie.TabIndex = 6;
             this.update_Movie.Text = "Update Or Delete Movie";
             this.update_Movie.UseVisualStyleBackColor = false;
-
+            this.update_Movie.Click += new System.EventHandler(this.update_Movie_Click);
+            // 
             // label3
+            // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(20, 20);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(183, 21);
+            this.label3.Size = new System.Drawing.Size(178, 21);
             this.label3.TabIndex = 8;
             this.label3.Text = "Schedule Management";
-
+            // 
             // update_schedule
+            // 
             this.update_schedule.BackColor = System.Drawing.Color.SeaGreen;
             this.update_schedule.FlatAppearance.BorderSize = 0;
             this.update_schedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -156,8 +166,10 @@
             this.update_schedule.TabIndex = 9;
             this.update_schedule.Text = "Update Or Delete Schedule";
             this.update_schedule.UseVisualStyleBackColor = false;
-
+            this.update_schedule.Click += new System.EventHandler(this.update_schedule_Click);
+            // 
             // panelHeader
+            // 
             this.panelHeader.BackColor = System.Drawing.Color.SteelBlue;
             this.panelHeader.Controls.Add(this.lblTitle);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
@@ -165,18 +177,20 @@
             this.panelHeader.Name = "panelHeader";
             this.panelHeader.Size = new System.Drawing.Size(500, 70);
             this.panelHeader.TabIndex = 10;
-
+            // 
             // lblTitle
+            // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(20, 20);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(135, 30);
+            this.lblTitle.Size = new System.Drawing.Size(139, 30);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Admin Panel";
-
+            // 
             // panelUser
+            // 
             this.panelUser.BackColor = System.Drawing.Color.White;
             this.panelUser.Controls.Add(this.label1);
             this.panelUser.Controls.Add(this.add_admin_button);
@@ -186,8 +200,9 @@
             this.panelUser.Padding = new System.Windows.Forms.Padding(10);
             this.panelUser.Size = new System.Drawing.Size(460, 110);
             this.panelUser.TabIndex = 11;
-
+            // 
             // panelMovie
+            // 
             this.panelMovie.BackColor = System.Drawing.Color.White;
             this.panelMovie.Controls.Add(this.label2);
             this.panelMovie.Controls.Add(this.add_movie);
@@ -197,8 +212,9 @@
             this.panelMovie.Padding = new System.Windows.Forms.Padding(10);
             this.panelMovie.Size = new System.Drawing.Size(460, 110);
             this.panelMovie.TabIndex = 12;
-
+            // 
             // panelSchedule
+            // 
             this.panelSchedule.BackColor = System.Drawing.Color.White;
             this.panelSchedule.Controls.Add(this.label3);
             this.panelSchedule.Controls.Add(this.add_schedule);
@@ -208,8 +224,9 @@
             this.panelSchedule.Padding = new System.Windows.Forms.Padding(10);
             this.panelSchedule.Size = new System.Drawing.Size(460, 110);
             this.panelSchedule.TabIndex = 13;
-
+            // 
             // AdminForm
+            // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -219,11 +236,9 @@
             this.Controls.Add(this.panelUser);
             this.Controls.Add(this.panelHeader);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "AdminForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Admin Panel";
-            this.Load += new System.EventHandler(this.AdminForm_Load);
             this.panelHeader.ResumeLayout(false);
             this.panelHeader.PerformLayout();
             this.panelUser.ResumeLayout(false);
@@ -233,6 +248,7 @@
             this.panelSchedule.ResumeLayout(false);
             this.panelSchedule.PerformLayout();
             this.ResumeLayout(false);
+
         }
 
         #endregion

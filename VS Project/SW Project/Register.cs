@@ -89,8 +89,8 @@ namespace SW_Project
 
 
                 // Insert the new user
-                OracleCommand insertCmd = new OracleCommand("INSERT INTO Users (UserID, Email, Password, Username, PhoneNumber, Age) " +
-                                                            "VALUES (user_seq.NEXTVAL, :email, :password, :username, :phone, :age)", conn);
+                OracleCommand insertCmd = new OracleCommand("INSERT INTO Users (UserID, Email, Password, Username, PhoneNumber, Age, ISADMIN) " +
+                                                            "VALUES (user_seq.NEXTVAL, :email, :password, :username, :phone, :age, 0)", conn);
 
                 insertCmd.Parameters.Add("email", email);
                 insertCmd.Parameters.Add("password", password);
@@ -102,6 +102,8 @@ namespace SW_Project
                 if (rowsInserted > 0)
                 {
                     MessageBox.Show("Registration successful!");
+                    LoginPage loginPage = new LoginPage();
+                    loginPage.Show();
                 }
                 else
                 {
@@ -115,8 +117,16 @@ namespace SW_Project
             finally
             {
                 conn.Close();
+                this.Close();
 
             }
+        }
+
+        private void Go_to_Login_Label_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LoginPage loginPage = new LoginPage();
+            loginPage.Show();
+            this.Close();
         }
     }
 

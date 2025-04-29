@@ -39,12 +39,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.Go_to_Login_Label = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // username_tb
             // 
             this.username_tb.Location = new System.Drawing.Point(412, 120);
-            this.username_tb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.username_tb.Margin = new System.Windows.Forms.Padding(2);
             this.username_tb.Name = "username_tb";
             this.username_tb.Size = new System.Drawing.Size(215, 20);
             this.username_tb.TabIndex = 0;
@@ -53,7 +54,7 @@
             // phone_tb
             // 
             this.phone_tb.Location = new System.Drawing.Point(412, 176);
-            this.phone_tb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.phone_tb.Margin = new System.Windows.Forms.Padding(2);
             this.phone_tb.Name = "phone_tb";
             this.phone_tb.Size = new System.Drawing.Size(215, 20);
             this.phone_tb.TabIndex = 1;
@@ -62,7 +63,7 @@
             // age_tb
             // 
             this.age_tb.Location = new System.Drawing.Point(412, 228);
-            this.age_tb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.age_tb.Margin = new System.Windows.Forms.Padding(2);
             this.age_tb.Name = "age_tb";
             this.age_tb.Size = new System.Drawing.Size(215, 20);
             this.age_tb.TabIndex = 2;
@@ -71,7 +72,7 @@
             // password_tb
             // 
             this.password_tb.Location = new System.Drawing.Point(412, 341);
-            this.password_tb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.password_tb.Margin = new System.Windows.Forms.Padding(2);
             this.password_tb.Name = "password_tb";
             this.password_tb.Size = new System.Drawing.Size(215, 20);
             this.password_tb.TabIndex = 3;
@@ -80,7 +81,7 @@
             // email_tb
             // 
             this.email_tb.Location = new System.Drawing.Point(412, 281);
-            this.email_tb.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.email_tb.Margin = new System.Windows.Forms.Padding(2);
             this.email_tb.Name = "email_tb";
             this.email_tb.Size = new System.Drawing.Size(215, 20);
             this.email_tb.TabIndex = 4;
@@ -90,7 +91,7 @@
             // 
             this.button1.FlatAppearance.BorderSize = 44;
             this.button1.Location = new System.Drawing.Point(438, 400);
-            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.button1.Margin = new System.Windows.Forms.Padding(2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(165, 40);
             this.button1.TabIndex = 5;
@@ -148,12 +149,24 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Password";
             // 
+            // Go_to_Login_Label
+            // 
+            this.Go_to_Login_Label.AutoSize = true;
+            this.Go_to_Login_Label.Location = new System.Drawing.Point(438, 478);
+            this.Go_to_Login_Label.Name = "Go_to_Login_Label";
+            this.Go_to_Login_Label.Size = new System.Drawing.Size(164, 13);
+            this.Go_to_Login_Label.TabIndex = 11;
+            this.Go_to_Login_Label.TabStop = true;
+            this.Go_to_Login_Label.Text = "Already have an account? Login!";
+            this.Go_to_Login_Label.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Go_to_Login_Label_LinkClicked);
+            // 
             // Register
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkGreen;
             this.ClientSize = new System.Drawing.Size(1506, 690);
+            this.Controls.Add(this.Go_to_Login_Label);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -166,7 +179,7 @@
             this.Controls.Add(this.phone_tb);
             this.Controls.Add(this.username_tb);
             this.ForeColor = System.Drawing.Color.DarkBlue;
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Register";
             this.Text = "Register";
             this.ResumeLayout(false);
@@ -187,5 +200,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.LinkLabel Go_to_Login_Label;
     }
 }

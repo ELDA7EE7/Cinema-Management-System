@@ -102,5 +102,12 @@ namespace SW_Project
                 }
             }
         }
+
+        private void Back_To_Admin(object sender, EventArgs e)
+        {
+            AdminForm adminForm = new AdminForm();
+            adminForm.Show();
+            this.Close();
+        }
     }
 }

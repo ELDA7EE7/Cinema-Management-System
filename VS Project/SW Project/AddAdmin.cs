@@ -97,5 +97,12 @@ namespace SW_Project
                 MessageBox.Show("Please fill all the Data");
             }
         }
+
+        private void Back_to_Admin_Click(object sender, EventArgs e)
+        {
+            AdminForm admin = new AdminForm();
+            admin.Show();
+            this.Close();
+        }
     }
 }

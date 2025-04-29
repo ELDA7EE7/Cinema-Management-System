@@ -17,24 +17,46 @@ namespace SW_Project
             InitializeComponent();
         }
 
-        private void manage_user_Click(object sender, EventArgs e)
+        private void Add_Admin_Click(object sender, EventArgs e)
         {
-
+            AddAdmin addAdmin = new AddAdmin();
+            addAdmin.Show();
+            this.Close();
         }
 
-        private void manage_movie_Click(object sender, EventArgs e)
+        private void Add_Movie_Click(object sender, EventArgs e)
         {
-
+            AddMovie addMovie = new AddMovie();
+            addMovie.Show();
+            this.Close();
         }
 
-        private void manage_schedule_Click(object sender, EventArgs e)
+        private void Add_Schedule_Click(object sender, EventArgs e)
         {
-
+            AddScheduleForm addScheduleForm = new AddScheduleForm();
+            addScheduleForm.Show();
+            this.Close();
         }
 
-        private void AdminForm_Load(object sender, EventArgs e)
+        private void delete_user_Click(object sender, EventArgs e)
         {
+            DeleteUser deleteUser = new DeleteUser();
+            deleteUser.Show();
+            this.Close();
+        }
 
+        private void update_Movie_Click(object sender, EventArgs e)
+        {
+            Modify_film modify_Film = new Modify_film();
+            modify_Film.Show();
+            this.Close();
+        }
+
+        private void update_schedule_Click(object sender, EventArgs e)
+        {
+            UpdateDeleteScheduleForm updateDeleteScheduleForm = new UpdateDeleteScheduleForm();
+            updateDeleteScheduleForm.Show();
+            this.Close();
         }
     }
 }
