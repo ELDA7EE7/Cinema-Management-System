@@ -125,3 +125,10 @@ erDiagram
 
 ![image](https://github.com/user-attachments/assets/4ac3d772-0b11-4f0a-b942-caea75d841e3)
 
+
+## Technologies Used
+
+- Language: C# (.NET Framework)
+- Database: Oracle Database
+- Frameworks: Windows Forms for GUI development
+- Other Tools: Oracle Data Access for database operations
