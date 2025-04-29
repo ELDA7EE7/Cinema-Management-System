@@ -40,9 +40,9 @@
             this.age_tb = new System.Windows.Forms.TextBox();
             this.add_button = new System.Windows.Forms.Button();
             this.panelHeader = new System.Windows.Forms.Panel();
+            this.Back_to_Admin = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelForm = new System.Windows.Forms.Panel();
-            this.Back_to_Admin = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             this.panelForm.SuspendLayout();
             this.SuspendLayout();
@@ -53,7 +53,7 @@
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label1.Location = new System.Drawing.Point(30, 30);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(74, 19);
+            this.label1.Size = new System.Drawing.Size(91, 23);
             this.label1.TabIndex = 1;
             this.label1.Text = "Username:";
             // 
@@ -63,7 +63,7 @@
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label2.Location = new System.Drawing.Point(30, 80);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(46, 19);
+            this.label2.Size = new System.Drawing.Size(55, 23);
             this.label2.TabIndex = 2;
             this.label2.Text = "Email:";
             // 
@@ -73,7 +73,7 @@
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label3.Location = new System.Drawing.Point(30, 130);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 19);
+            this.label3.Size = new System.Drawing.Size(86, 23);
             this.label3.TabIndex = 3;
             this.label3.Text = "Password:";
             // 
@@ -83,7 +83,7 @@
             this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label4.Location = new System.Drawing.Point(30, 180);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(107, 19);
+            this.label4.Size = new System.Drawing.Size(132, 23);
             this.label4.TabIndex = 4;
             this.label4.Text = "Phone Number:";
             // 
@@ -93,7 +93,7 @@
             this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
             this.label5.Location = new System.Drawing.Point(30, 230);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(36, 19);
+            this.label5.Size = new System.Drawing.Size(44, 23);
             this.label5.TabIndex = 5;
             this.label5.Text = "Age:";
             // 
@@ -104,7 +104,7 @@
             this.username_tb.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.username_tb.Location = new System.Drawing.Point(180, 30);
             this.username_tb.Name = "username_tb";
-            this.username_tb.Size = new System.Drawing.Size(250, 25);
+            this.username_tb.Size = new System.Drawing.Size(250, 30);
             this.username_tb.TabIndex = 6;
             // 
             // email_tb
@@ -114,7 +114,7 @@
             this.email_tb.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.email_tb.Location = new System.Drawing.Point(180, 80);
             this.email_tb.Name = "email_tb";
-            this.email_tb.Size = new System.Drawing.Size(250, 25);
+            this.email_tb.Size = new System.Drawing.Size(250, 30);
             this.email_tb.TabIndex = 7;
             // 
             // password_tb
@@ -124,7 +124,7 @@
             this.password_tb.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.password_tb.Location = new System.Drawing.Point(180, 130);
             this.password_tb.Name = "password_tb";
-            this.password_tb.Size = new System.Drawing.Size(250, 25);
+            this.password_tb.Size = new System.Drawing.Size(250, 30);
             this.password_tb.TabIndex = 8;
             this.password_tb.UseSystemPasswordChar = true;
             // 
@@ -135,7 +135,7 @@
             this.phone_tb.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.phone_tb.Location = new System.Drawing.Point(180, 180);
             this.phone_tb.Name = "phone_tb";
-            this.phone_tb.Size = new System.Drawing.Size(250, 25);
+            this.phone_tb.Size = new System.Drawing.Size(250, 30);
             this.phone_tb.TabIndex = 9;
             // 
             // age_tb
@@ -145,7 +145,7 @@
             this.age_tb.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.age_tb.Location = new System.Drawing.Point(180, 230);
             this.age_tb.Name = "age_tb";
-            this.age_tb.Size = new System.Drawing.Size(250, 25);
+            this.age_tb.Size = new System.Drawing.Size(250, 30);
             this.age_tb.TabIndex = 10;
             // 
             // add_button
@@ -171,8 +171,18 @@
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(500, 70);
+            this.panelHeader.Size = new System.Drawing.Size(536, 70);
             this.panelHeader.TabIndex = 12;
+            // 
+            // Back_to_Admin
+            // 
+            this.Back_to_Admin.Location = new System.Drawing.Point(364, 26);
+            this.Back_to_Admin.Name = "Back_to_Admin";
+            this.Back_to_Admin.Size = new System.Drawing.Size(75, 23);
+            this.Back_to_Admin.TabIndex = 1;
+            this.Back_to_Admin.Text = "Back";
+            this.Back_to_Admin.UseVisualStyleBackColor = true;
+            this.Back_to_Admin.Click += new System.EventHandler(this.Back_to_Admin_Click);
             // 
             // lblTitle
             // 
@@ -181,7 +191,7 @@
             this.lblTitle.ForeColor = System.Drawing.Color.White;
             this.lblTitle.Location = new System.Drawing.Point(20, 20);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(126, 30);
+            this.lblTitle.Size = new System.Drawing.Size(155, 37);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Add Admin";
             // 
@@ -203,25 +213,15 @@
             this.panelForm.Location = new System.Drawing.Point(0, 70);
             this.panelForm.Name = "panelForm";
             this.panelForm.Padding = new System.Windows.Forms.Padding(20);
-            this.panelForm.Size = new System.Drawing.Size(500, 380);
+            this.panelForm.Size = new System.Drawing.Size(536, 380);
             this.panelForm.TabIndex = 13;
-            // 
-            // Back_to_Admin
-            // 
-            this.Back_to_Admin.Location = new System.Drawing.Point(364, 26);
-            this.Back_to_Admin.Name = "Back_to_Admin";
-            this.Back_to_Admin.Size = new System.Drawing.Size(75, 23);
-            this.Back_to_Admin.TabIndex = 1;
-            this.Back_to_Admin.Text = "Back";
-            this.Back_to_Admin.UseVisualStyleBackColor = true;
-            this.Back_to_Admin.Click += new System.EventHandler(this.Back_to_Admin_Click);
             // 
             // AddAdmin
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(500, 450);
+            this.ClientSize = new System.Drawing.Size(536, 450);
             this.Controls.Add(this.panelForm);
             this.Controls.Add(this.panelHeader);
             this.Font = new System.Drawing.Font("Segoe UI", 9F);
