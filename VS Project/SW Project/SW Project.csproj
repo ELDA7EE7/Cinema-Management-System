@@ -55,7 +55,6 @@
     <Compile Include="Register.Designer.cs">
       <DependentUpon>Register.cs</DependentUpon>
     </Compile>
-    <Compile Include=".Designer.cs" />
     <Compile Include="AddScheduleForm.cs">
       <SubType>Form</SubType>
     </Compile>
