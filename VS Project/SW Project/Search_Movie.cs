@@ -80,7 +80,7 @@ namespace SW_Project
         {
             Manage_User anotherForm = new Manage_User();
             anotherForm.Show();
-            this.Hide();
+            this.Close();
             conn.Close();
         }
     }

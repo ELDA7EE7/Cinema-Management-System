@@ -51,6 +51,7 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(776, 21);
             this.comboBox1.TabIndex = 0;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
             // label1
             // 
@@ -59,7 +60,6 @@
             this.label1.Size = new System.Drawing.Size(100, 23);
             this.label1.TabIndex = 2;
             this.label1.Text = "Number of Tickets:";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
             // 
             // button1
             // 
@@ -69,7 +69,7 @@
             this.button1.TabIndex = 3;
             this.button1.Text = "Book";
             this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.Click += new System.EventHandler(this.BookButton_Click);
             // 
             // button2
             // 
@@ -153,19 +153,29 @@
             // tickets_num_up_down
             // 
             this.tickets_num_up_down.Location = new System.Drawing.Point(117, 262);
+            this.tickets_num_up_down.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.tickets_num_up_down.Name = "tickets_num_up_down";
             this.tickets_num_up_down.Size = new System.Drawing.Size(120, 20);
             this.tickets_num_up_down.TabIndex = 12;
+            this.tickets_num_up_down.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // seatsAvailable
             // 
             this.seatsAvailable.AutoSize = true;
             this.seatsAvailable.Font = new System.Drawing.Font("Impact", 20F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.seatsAvailable.Location = new System.Drawing.Point(542, 185);
+            this.seatsAvailable.Location = new System.Drawing.Point(16, 341);
             this.seatsAvailable.Name = "seatsAvailable";
-            this.seatsAvailable.Size = new System.Drawing.Size(91, 34);
+            this.seatsAvailable.Size = new System.Drawing.Size(227, 34);
             this.seatsAvailable.TabIndex = 13;
-            this.seatsAvailable.Text = "label2";
+            this.seatsAvailable.Text = "Available Tickets:";
             // 
             // Show_Movie
             // 
@@ -187,7 +197,7 @@
             this.Controls.Add(this.comboBox1);
             this.Name = "Show_Movie";
             this.Text = "Show_Movie";
-            this.Load += new System.EventHandler(this.Show_Movie_Load_1);
+            this.Load += new System.EventHandler(this.Show_Movie_Load);
             ((System.ComponentModel.ISupportInitialize)(this.tickets_num_up_down)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

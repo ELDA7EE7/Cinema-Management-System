@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,6 +17,9 @@ namespace SW_Project
         int movieID;
         string ordb = "Data source=orcl;User Id=scott;Password=tiger;";
         OracleConnection conn;
+        int selectedScheduleId = -1;
+        int seatsNum = 0;
+        decimal ticketCost;
         public Show_Movie(int movieID)
         {
             InitializeComponent();
@@ -23,63 +27,114 @@ namespace SW_Project
             this.movieID = movieID;
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
+        private void BookButton_Click(object sender, EventArgs e)
         {
+            // Validate input first
+            if (comboBox1.SelectedItem == null)
+            {
+                MessageBox.Show("Please select a show time.");
+                return;
+            }
 
+            int countRequired = (int)tickets_num_up_down.Value;
+
+            if (countRequired <= 0)
+            {
+                MessageBox.Show("Please select at least one ticket.");
+                return;
+            }
+
+            if (countRequired > seatsNum)
+            {
+                MessageBox.Show($"Not enough available seats. Only {seatsNum} seats remaining.");
+                return;
+            }
+
+            // Ask for user confirmation
+            DialogResult result = MessageBox.Show(
+                $"Are you sure you want to book {countRequired} tickets for this show?",
+                "Confirm Booking",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Question);
+
+            if (result != DialogResult.Yes)
+            {
+                return;
+            }
+
+            try
+            {
+                // Update available seats in MOVIE_SCHEDULE
+                string updateSeatsSql = @"
+            UPDATE MOVIE_SCHEDULE 
+            SET SEATS_NUM = SEATS_NUM - :countRequired 
+            WHERE SCHEDULE_ID = :scheduleId";
+                conn.Open();
+                using (OracleCommand updateCmd = new OracleCommand(updateSeatsSql, conn))
+                {
+                    updateCmd.Parameters.Add("countRequired", OracleDbType.Int32).Value = countRequired;
+                    updateCmd.Parameters.Add("scheduleId", OracleDbType.Int32).Value = selectedScheduleId;
+
+                    int rowsAffected = updateCmd.ExecuteNonQuery();
+
+                    if (rowsAffected == 0)
+                    {
+                        MessageBox.Show("Failed to update seats. Show schedule not found.");
+                        return;
+                    }
+                }
+
+                // Insert new booking record
+                string insertBookingSql = @"
+            INSERT INTO Booking (
+                BookingID, 
+                UserID, 
+                MovieID, 
+                Quantity, 
+                TicketPrice
+            ) VALUES (
+                booking_seq.NEXTVAL,
+                :userId, 
+                :movieId, 
+                :quantity, 
+                :ticketPrice
+            )";
+
+                using (OracleCommand insertCmd = new OracleCommand(insertBookingSql, conn))
+                {
+                    CurrUser.UserId = 3; //remove this line <---------------
+                    insertCmd.Parameters.Add("userId", OracleDbType.Int32).Value = CurrUser.UserId;
+                    insertCmd.Parameters.Add("movieId", OracleDbType.Int32).Value = movieID;
+                    insertCmd.Parameters.Add("quantity", OracleDbType.Int32).Value = countRequired;
+                    insertCmd.Parameters.Add("ticketPrice", OracleDbType.Decimal).Value = ticketCost;
+
+                    insertCmd.ExecuteNonQuery();
+                }
+
+                // Update local seats count
+                seatsNum -= countRequired;
+                seatsAvailable.Text = "Tickets Available: " + seatsNum.ToString();
+                tickets_num_up_down.Value = 1;
+                tickets_num_up_down.Maximum = seatsNum;
+                MessageBox.Show($"Successfully booked {countRequired} tickets!");
+
+
+            }
+            catch (OracleException ex)
+            {
+                MessageBox.Show($"Database error: {ex.Message}");
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Error processing booking: {ex.Message}");
+            }
+            finally
+            {
+                conn.Close();
+            }
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            conn.Open();
-
-            string selectedShow = comboBox1.SelectedItem.ToString();
-
-            string[] parts = selectedShow.Split(' ');
-            DateTime screenDate = DateTime.Parse(parts[0]);
-            TimeSpan startTime = TimeSpan.Parse(parts[1]);
-
-            int countRequired = Convert.ToInt32(tickets_num_up_down.Value);
-
-            OracleCommand checkCommand = new OracleCommand();
-            checkCommand.Connection = conn;
-            checkCommand.CommandText = "SELECT available_tickets FROM movie_schedule WHERE movieid = :movieID AND screen_date = :sdate AND start_time = :stime";
-            checkCommand.Parameters.Add("movieID", movieID);
-            checkCommand.Parameters.Add("sdate", screenDate);
-            checkCommand.Parameters.Add("stime", startTime);
-
-            int availableTickets = Convert.ToInt32(checkCommand.ExecuteScalar());
-
-            if (countRequired <= availableTickets)
-            {
-                OracleCommand insertCommand = new OracleCommand();
-                insertCommand.Connection = conn;
-                insertCommand.CommandText = "INSERT INTO Booking (booking_id, movieid, screen_date, start_time, tickets_booked) VALUES (booking_seq.NEXTVAL, :movieID, :sdate, :stime, :count)";
-                insertCommand.Parameters.Add("movieID", movieID);
-                insertCommand.Parameters.Add("sdate", screenDate);
-                insertCommand.Parameters.Add("stime", startTime);
-                insertCommand.Parameters.Add("count", countRequired);
-                insertCommand.ExecuteNonQuery();
-
-                OracleCommand updateCommand = new OracleCommand();
-                updateCommand.Connection = conn;
-                updateCommand.CommandText = "UPDATE movie_schedule SET available_tickets = available_tickets - :count WHERE movieid = :movieID AND screen_date = :sdate AND start_time = :stime";
-                updateCommand.Parameters.Add("count", countRequired);
-                updateCommand.Parameters.Add("movieID", movieID);
-                updateCommand.Parameters.Add("sdate", screenDate);
-                updateCommand.Parameters.Add("stime", startTime);
-                updateCommand.ExecuteNonQuery();
-                Show_Movie_Load_1(sender, e);
-                MessageBox.Show("Booking successful!");
-            }
-            else
-            {
-                string msg = "Not enough number of tickets, max is " + availableTickets.ToString();
-                MessageBox.Show(msg);
-            }
-            conn.Close();
-        }
-
-        private void Show_Movie_Load_1(object sender, EventArgs e)
+        private void Show_Movie_Load(object sender, EventArgs e)
         {
             conn.Open();
 
@@ -117,7 +172,7 @@ namespace SW_Project
                             duration = Convert.ToInt32(durationValue);
                         }
                         decimal rating = reader.IsDBNull(4) ? 0 : reader.GetDecimal(4);
-                        decimal ticketCost = reader.GetDecimal(5);
+                        ticketCost = reader.GetDecimal(5);
                         string director = reader.GetString(6);
                         string genre = reader.IsDBNull(7) ? "Unknown" : reader.GetString(7);
 
@@ -147,8 +202,6 @@ namespace SW_Project
                                         " - " + endTime.ToString("HH:mm");
                         comboBox1.Items.Add(display);
                     }
-                    int seatsAv = Convert.ToInt32(reader.GetValue(9));
-                    seatsAvailable.Text ="Seats Available: " + seatsAv.ToString();
                 }
 
                 reader.Close();
@@ -165,7 +218,58 @@ namespace SW_Project
                 MessageBox.Show("Error loading movie data: " + ex.Message, "Error",
                               MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            conn.Close();
+            finally
+            {
+                conn.Close();
+            }
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Parse the selected show time
+            DateTime parsedStartTime;
+            try
+            {
+                string selectedShow = comboBox1.SelectedItem.ToString();
+                string[] parts = selectedShow.Split(new[] { " - " }, StringSplitOptions.None);
+
+                // Extract just the date-time part before the first " - "
+                string dateTimePart = parts[0].Trim();
+                parsedStartTime = DateTime.ParseExact(dateTimePart, "yyyy-MM-dd | HH:mm", CultureInfo.InvariantCulture);
+
+                // Oracle command
+                string oracleCmd = "SELECT SCHEDULE_ID, SEATS_NUM FROM MOVIE_SCHEDULE " +
+                                  "WHERE START_TIME = TO_TIMESTAMP(:startTime, 'YYYY-MM-DD HH24:MI:SS')";
+
+                conn.Open();
+                // Assuming you have an OracleConnection object named oracleConnection
+                using (OracleCommand command = new OracleCommand(oracleCmd, conn))
+                {
+                    command.Parameters.Add("startTime", OracleDbType.Varchar2).Value = parsedStartTime.ToString("yyyy-MM-dd HH:mm:ss");
+
+                    using (OracleDataReader reader = command.ExecuteReader())
+                    {
+                        if (reader.Read())
+                        {
+                            selectedScheduleId = Convert.ToInt32(reader.GetValue(0));
+                            seatsNum =Convert.ToInt32(reader.GetValue(1));
+                            seatsAvailable.Text = "Tickets Available: " + seatsNum.ToString();
+                            tickets_num_up_down.Value = 1;
+                            tickets_num_up_down.Maximum = seatsNum;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.StackTrace);
+                MessageBox.Show("Invalid show time format: " + ex.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+
         }
     }
 }
