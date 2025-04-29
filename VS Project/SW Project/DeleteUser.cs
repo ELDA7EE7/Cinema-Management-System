@@ -130,5 +130,10 @@ namespace SW_Project
                               MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        private void panelForm_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
