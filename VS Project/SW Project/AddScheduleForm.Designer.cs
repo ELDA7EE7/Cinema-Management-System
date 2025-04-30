@@ -38,9 +38,9 @@
             this.lblStartTime = new System.Windows.Forms.Label();
             this.lblEndTime = new System.Windows.Forms.Label();
             this.panelHeader = new System.Windows.Forms.Panel();
+            this.Back_to_Admin = new System.Windows.Forms.Button();
             this.lblTitle = new System.Windows.Forms.Label();
             this.panelForm = new System.Windows.Forms.Panel();
-            this.Back_to_Admin = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             this.panelForm.SuspendLayout();
             this.SuspendLayout();
@@ -50,10 +50,10 @@
             this.txtMovieId.BackColor = System.Drawing.Color.White;
             this.txtMovieId.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.txtMovieId.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMovieId.Location = new System.Drawing.Point(180, 45);
-            this.txtMovieId.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtMovieId.Location = new System.Drawing.Point(240, 55);
+            this.txtMovieId.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.txtMovieId.Name = "txtMovieId";
-            this.txtMovieId.Size = new System.Drawing.Size(250, 26);
+            this.txtMovieId.Size = new System.Drawing.Size(333, 30);
             this.txtMovieId.TabIndex = 1;
             // 
             // dtpScreenDate
@@ -61,32 +61,32 @@
             this.dtpScreenDate.CalendarFont = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpScreenDate.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpScreenDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpScreenDate.Location = new System.Drawing.Point(180, 98);
-            this.dtpScreenDate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtpScreenDate.Location = new System.Drawing.Point(240, 121);
+            this.dtpScreenDate.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.dtpScreenDate.Name = "dtpScreenDate";
-            this.dtpScreenDate.Size = new System.Drawing.Size(250, 26);
+            this.dtpScreenDate.Size = new System.Drawing.Size(332, 30);
             this.dtpScreenDate.TabIndex = 2;
             // 
             // dtpStartTime
             // 
             this.dtpStartTime.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpStartTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpStartTime.Location = new System.Drawing.Point(180, 149);
-            this.dtpStartTime.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtpStartTime.Location = new System.Drawing.Point(240, 183);
+            this.dtpStartTime.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.dtpStartTime.Name = "dtpStartTime";
             this.dtpStartTime.ShowUpDown = true;
-            this.dtpStartTime.Size = new System.Drawing.Size(250, 26);
+            this.dtpStartTime.Size = new System.Drawing.Size(332, 30);
             this.dtpStartTime.TabIndex = 3;
             // 
             // dtpEndTime
             // 
             this.dtpEndTime.Font = new System.Drawing.Font("Segoe UI", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dtpEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpEndTime.Location = new System.Drawing.Point(180, 205);
-            this.dtpEndTime.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dtpEndTime.Location = new System.Drawing.Point(240, 252);
+            this.dtpEndTime.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.dtpEndTime.Name = "dtpEndTime";
             this.dtpEndTime.ShowUpDown = true;
-            this.dtpEndTime.Size = new System.Drawing.Size(250, 26);
+            this.dtpEndTime.Size = new System.Drawing.Size(332, 30);
             this.dtpEndTime.TabIndex = 4;
             // 
             // btnAddSchedule
@@ -96,10 +96,10 @@
             this.btnAddSchedule.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAddSchedule.Font = new System.Drawing.Font("Segoe UI Semibold", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnAddSchedule.ForeColor = System.Drawing.Color.White;
-            this.btnAddSchedule.Location = new System.Drawing.Point(119, 283);
-            this.btnAddSchedule.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.btnAddSchedule.Location = new System.Drawing.Point(159, 348);
+            this.btnAddSchedule.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
             this.btnAddSchedule.Name = "btnAddSchedule";
-            this.btnAddSchedule.Size = new System.Drawing.Size(250, 45);
+            this.btnAddSchedule.Size = new System.Drawing.Size(333, 55);
             this.btnAddSchedule.TabIndex = 5;
             this.btnAddSchedule.Text = "Add Schedule";
             this.btnAddSchedule.UseVisualStyleBackColor = false;
@@ -109,10 +109,10 @@
             // 
             this.lblMovieId.AutoSize = true;
             this.lblMovieId.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblMovieId.Location = new System.Drawing.Point(30, 47);
-            this.lblMovieId.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMovieId.Location = new System.Drawing.Point(40, 58);
+            this.lblMovieId.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblMovieId.Name = "lblMovieId";
-            this.lblMovieId.Size = new System.Drawing.Size(69, 19);
+            this.lblMovieId.Size = new System.Drawing.Size(84, 23);
             this.lblMovieId.TabIndex = 7;
             this.lblMovieId.Text = "Movie ID:";
             // 
@@ -120,10 +120,10 @@
             // 
             this.lblScreenDate.AutoSize = true;
             this.lblScreenDate.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblScreenDate.Location = new System.Drawing.Point(30, 98);
-            this.lblScreenDate.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblScreenDate.Location = new System.Drawing.Point(40, 121);
+            this.lblScreenDate.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblScreenDate.Name = "lblScreenDate";
-            this.lblScreenDate.Size = new System.Drawing.Size(87, 19);
+            this.lblScreenDate.Size = new System.Drawing.Size(106, 23);
             this.lblScreenDate.TabIndex = 8;
             this.lblScreenDate.Text = "Screen Date:";
             // 
@@ -131,10 +131,10 @@
             // 
             this.lblStartTime.AutoSize = true;
             this.lblStartTime.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblStartTime.Location = new System.Drawing.Point(30, 149);
-            this.lblStartTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblStartTime.Location = new System.Drawing.Point(40, 183);
+            this.lblStartTime.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblStartTime.Name = "lblStartTime";
-            this.lblStartTime.Size = new System.Drawing.Size(77, 19);
+            this.lblStartTime.Size = new System.Drawing.Size(92, 23);
             this.lblStartTime.TabIndex = 9;
             this.lblStartTime.Text = "Start Time:";
             // 
@@ -142,10 +142,10 @@
             // 
             this.lblEndTime.AutoSize = true;
             this.lblEndTime.Font = new System.Drawing.Font("Segoe UI Semibold", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblEndTime.Location = new System.Drawing.Point(37, 205);
-            this.lblEndTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEndTime.Location = new System.Drawing.Point(49, 252);
+            this.lblEndTime.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblEndTime.Name = "lblEndTime";
-            this.lblEndTime.Size = new System.Drawing.Size(70, 19);
+            this.lblEndTime.Size = new System.Drawing.Size(85, 23);
             this.lblEndTime.TabIndex = 10;
             this.lblEndTime.Text = "End Time:";
             // 
@@ -156,18 +156,31 @@
             this.panelHeader.Controls.Add(this.lblTitle);
             this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelHeader.Location = new System.Drawing.Point(0, 0);
+            this.panelHeader.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelHeader.Name = "panelHeader";
-            this.panelHeader.Size = new System.Drawing.Size(500, 70);
+            this.panelHeader.Size = new System.Drawing.Size(667, 86);
             this.panelHeader.TabIndex = 11;
+            // 
+            // Back_to_Admin
+            // 
+            this.Back_to_Admin.Location = new System.Drawing.Point(484, 32);
+            this.Back_to_Admin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Back_to_Admin.Name = "Back_to_Admin";
+            this.Back_to_Admin.Size = new System.Drawing.Size(100, 28);
+            this.Back_to_Admin.TabIndex = 1;
+            this.Back_to_Admin.Text = "Back";
+            this.Back_to_Admin.UseVisualStyleBackColor = true;
+            this.Back_to_Admin.Click += new System.EventHandler(this.Back_to_Admin_Click);
             // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTitle.ForeColor = System.Drawing.Color.White;
-            this.lblTitle.Location = new System.Drawing.Point(20, 20);
+            this.lblTitle.Location = new System.Drawing.Point(27, 25);
+            this.lblTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(151, 30);
+            this.lblTitle.Size = new System.Drawing.Size(192, 38);
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Add Schedule";
             // 
@@ -184,32 +197,23 @@
             this.panelForm.Controls.Add(this.dtpEndTime);
             this.panelForm.Controls.Add(this.btnAddSchedule);
             this.panelForm.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelForm.Location = new System.Drawing.Point(0, 70);
+            this.panelForm.Location = new System.Drawing.Point(0, 86);
+            this.panelForm.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panelForm.Name = "panelForm";
-            this.panelForm.Padding = new System.Windows.Forms.Padding(20);
-            this.panelForm.Size = new System.Drawing.Size(500, 380);
+            this.panelForm.Padding = new System.Windows.Forms.Padding(27, 25, 27, 25);
+            this.panelForm.Size = new System.Drawing.Size(667, 468);
             this.panelForm.TabIndex = 12;
-            // 
-            // Back_to_Admin
-            // 
-            this.Back_to_Admin.Location = new System.Drawing.Point(363, 26);
-            this.Back_to_Admin.Name = "Back_to_Admin";
-            this.Back_to_Admin.Size = new System.Drawing.Size(75, 23);
-            this.Back_to_Admin.TabIndex = 1;
-            this.Back_to_Admin.Text = "Back";
-            this.Back_to_Admin.UseVisualStyleBackColor = true;
-            this.Back_to_Admin.Click += new System.EventHandler(this.Back_to_Admin_Click);
             // 
             // AddScheduleForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(500, 450);
+            this.ClientSize = new System.Drawing.Size(667, 554);
             this.Controls.Add(this.panelForm);
             this.Controls.Add(this.panelHeader);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 7.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Margin = new System.Windows.Forms.Padding(4);
+            this.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AddScheduleForm";

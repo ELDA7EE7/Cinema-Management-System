@@ -277,5 +277,7 @@ namespace SW_Project
             search_Movie.Show();
             this.Close();
         }
+
+        
     }
 }

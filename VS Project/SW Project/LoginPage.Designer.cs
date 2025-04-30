@@ -34,16 +34,21 @@
             this.label2 = new System.Windows.Forms.Label();
             this.PasswordText = new System.Windows.Forms.TextBox();
             this.Go_to_Register_Link = new System.Windows.Forms.LinkLabel();
+            this.panelHeader = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.panelForm = new System.Windows.Forms.Panel();
+            this.panelHeader.SuspendLayout();
+            this.panelForm.SuspendLayout();
             this.SuspendLayout();
             // 
             // usernameText
             // 
+            this.usernameText.BackColor = System.Drawing.Color.White;
             this.usernameText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.usernameText.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.usernameText.Location = new System.Drawing.Point(202, 81);
-            this.usernameText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.usernameText.Location = new System.Drawing.Point(191, 50);
             this.usernameText.Name = "usernameText";
-            this.usernameText.Size = new System.Drawing.Size(166, 29);
+            this.usernameText.Size = new System.Drawing.Size(250, 34);
             this.usernameText.TabIndex = 0;
             // 
             // LoginButton
@@ -51,12 +56,11 @@
             this.LoginButton.BackColor = System.Drawing.Color.SteelBlue;
             this.LoginButton.FlatAppearance.BorderSize = 0;
             this.LoginButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.LoginButton.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold);
+            this.LoginButton.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.LoginButton.ForeColor = System.Drawing.Color.White;
-            this.LoginButton.Location = new System.Drawing.Point(218, 187);
-            this.LoginButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.LoginButton.Location = new System.Drawing.Point(191, 195);
             this.LoginButton.Name = "LoginButton";
-            this.LoginButton.Size = new System.Drawing.Size(135, 32);
+            this.LoginButton.Size = new System.Drawing.Size(250, 40);
             this.LoginButton.TabIndex = 2;
             this.LoginButton.Text = "Login";
             this.LoginButton.UseVisualStyleBackColor = false;
@@ -65,65 +69,99 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label1.Location = new System.Drawing.Point(120, 85);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label1.Location = new System.Drawing.Point(65, 50);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(84, 21);
+            this.label1.Size = new System.Drawing.Size(109, 28);
             this.label1.TabIndex = 3;
             this.label1.Text = "Username:";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.label2.Location = new System.Drawing.Point(120, 134);
-            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label2.Location = new System.Drawing.Point(72, 128);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(79, 21);
+            this.label2.Size = new System.Drawing.Size(102, 28);
             this.label2.TabIndex = 4;
             this.label2.Text = "Password:";
             // 
             // PasswordText
             // 
+            this.PasswordText.BackColor = System.Drawing.Color.White;
             this.PasswordText.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.PasswordText.Font = new System.Drawing.Font("Segoe UI", 12F);
-            this.PasswordText.Location = new System.Drawing.Point(202, 130);
-            this.PasswordText.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.PasswordText.Location = new System.Drawing.Point(191, 128);
             this.PasswordText.Name = "PasswordText";
-            this.PasswordText.Size = new System.Drawing.Size(166, 29);
+            this.PasswordText.Size = new System.Drawing.Size(250, 34);
             this.PasswordText.TabIndex = 1;
             this.PasswordText.UseSystemPasswordChar = true;
             // 
             // Go_to_Register_Link
             // 
             this.Go_to_Register_Link.AutoSize = true;
-            this.Go_to_Register_Link.Location = new System.Drawing.Point(198, 239);
+            this.Go_to_Register_Link.Location = new System.Drawing.Point(196, 238);
             this.Go_to_Register_Link.Name = "Go_to_Register_Link";
-            this.Go_to_Register_Link.Size = new System.Drawing.Size(170, 13);
+            this.Go_to_Register_Link.Size = new System.Drawing.Size(230, 20);
             this.Go_to_Register_Link.TabIndex = 5;
             this.Go_to_Register_Link.TabStop = true;
             this.Go_to_Register_Link.Text = "Don\'t Have An Account? Sign Up!";
             this.Go_to_Register_Link.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Go_to_Register_Link_LinkClicked);
             // 
+            // panelHeader
+            // 
+            this.panelHeader.BackColor = System.Drawing.Color.SteelBlue;
+            this.panelHeader.Controls.Add(this.lblTitle);
+            this.panelHeader.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelHeader.Location = new System.Drawing.Point(0, 0);
+            this.panelHeader.Name = "panelHeader";
+            this.panelHeader.Size = new System.Drawing.Size(500, 72);
+            this.panelHeader.TabIndex = 5;
+            // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Font = new System.Drawing.Font("Segoe UI Semibold", 16F, System.Drawing.FontStyle.Bold);
+            this.lblTitle.ForeColor = System.Drawing.Color.White;
+            this.lblTitle.Location = new System.Drawing.Point(20, 20);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(85, 37);
+            this.lblTitle.TabIndex = 0;
+            this.lblTitle.Text = "Login";
+            // 
+            // panelForm
+            // 
+            this.panelForm.BackColor = System.Drawing.Color.White;
+            this.panelForm.Controls.Add(this.Go_to_Register_Link);
+            this.panelForm.Controls.Add(this.label1);
+            this.panelForm.Controls.Add(this.usernameText);
+            this.panelForm.Controls.Add(this.label2);
+            this.panelForm.Controls.Add(this.PasswordText);
+            this.panelForm.Controls.Add(this.LoginButton);
+            this.panelForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelForm.Location = new System.Drawing.Point(0, 72);
+            this.panelForm.Name = "panelForm";
+            this.panelForm.Padding = new System.Windows.Forms.Padding(20);
+            this.panelForm.Size = new System.Drawing.Size(500, 278);
+            this.panelForm.TabIndex = 6;
+            // 
             // LoginPage
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(525, 325);
-            this.Controls.Add(this.Go_to_Register_Link);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.PasswordText);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.LoginButton);
-            this.Controls.Add(this.usernameText);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ClientSize = new System.Drawing.Size(500, 350);
+            this.Controls.Add(this.panelForm);
+            this.Controls.Add(this.panelHeader);
+            this.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.Name = "LoginPage";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Login Page";
+            this.Text = "Login";
+            this.panelHeader.ResumeLayout(false);
+            this.panelHeader.PerformLayout();
+            this.panelForm.ResumeLayout(false);
+            this.panelForm.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -134,6 +172,12 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.TextBox PasswordText;
+
         private System.Windows.Forms.LinkLabel Go_to_Register_Link;
+
+        private System.Windows.Forms.Panel panelHeader;
+        private System.Windows.Forms.Label lblTitle;
+        private System.Windows.Forms.Panel panelForm;
+
     }
 }

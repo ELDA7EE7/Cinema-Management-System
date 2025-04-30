@@ -84,5 +84,7 @@ namespace SW_Project
             register.Show();
             this.Close();
         }
+
+       
     }
 }
