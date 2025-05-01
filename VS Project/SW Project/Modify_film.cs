@@ -37,7 +37,7 @@ namespace SW_Project
                 int selectedMovieId = Convert.ToInt32(id_cb.SelectedItem.ToString());
 
                 // SQL query to get movie details
-                string query = "SELECT Title, ReleaseDate, Description, Duration, Rating, TicketCost, Director, Genre " +
+                string query = "SELECT Title, ReleaseDate, Description, Runtime, Rating, TicketCost, Director, Genre " +
                                "FROM Movie WHERE MovieID = :movieId";
 
                 using (OracleConnection connection = new OracleConnection(ordb))
@@ -54,7 +54,7 @@ namespace SW_Project
                             title_tb.Text = reader["Title"].ToString();
                             dateTime.Value = Convert.ToDateTime(reader["ReleaseDate"]);
                             description_tb.Text = reader["Description"].ToString();
-                            duration_tb.Text = reader["Duration"].ToString();
+                            duration_tb.Text = reader["Runtime"].ToString();
                             rating_num.Value = Convert.ToDecimal(reader["Rating"]);
                             cost_tb.Text = reader["TicketCost"].ToString();
                             director_tb.Text = reader["Director"].ToString();
@@ -129,7 +129,7 @@ namespace SW_Project
                     row["Title"] = title_tb.Text;
                     row["ReleaseDate"] = dateTime.Value;
                     row["Description"] = description_tb.Text;
-                    row["Duration"] = Convert.ToInt32(duration_tb.Text);
+                    row["Runtime"] = Convert.ToInt32(duration_tb.Text);
                     row["Rating"] = Convert.ToDecimal(rating_num.Value);
                     row["TicketCost"] = Convert.ToDecimal(cost_tb.Text);
                     row["Director"] = director_tb.Text;

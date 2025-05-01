@@ -58,5 +58,19 @@ namespace SW_Project
             updateDeleteScheduleForm.Show();
             this.Close();
         }
+
+        private void sched_report_Button_Click(object sender, EventArgs e)
+        {
+            ScheduleCrystalReportForm scheduleCrystalReportForm = new ScheduleCrystalReportForm();
+            scheduleCrystalReportForm.Show();
+            this.Close();
+        }
+
+        private void spending_report_Button_Click(object sender, EventArgs e)
+        {
+            UserSpendingCrystalReportForm userSpendingCrystalReportForm = new UserSpendingCrystalReportForm();
+            userSpendingCrystalReportForm.Show();
+            this.Close();
+        }
     }
 }

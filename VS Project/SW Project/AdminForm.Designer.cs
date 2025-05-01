@@ -42,10 +42,15 @@
             this.panelUser = new System.Windows.Forms.Panel();
             this.panelMovie = new System.Windows.Forms.Panel();
             this.panelSchedule = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.sched_report_Button = new System.Windows.Forms.Button();
+            this.spending_report_Button = new System.Windows.Forms.Button();
             this.panelHeader.SuspendLayout();
             this.panelUser.SuspendLayout();
             this.panelMovie.SuspendLayout();
             this.panelSchedule.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // add_admin_button
@@ -225,12 +230,65 @@
             this.panelSchedule.Size = new System.Drawing.Size(460, 110);
             this.panelSchedule.TabIndex = 13;
             // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.label4);
+            this.panel1.Controls.Add(this.sched_report_Button);
+            this.panel1.Controls.Add(this.spending_report_Button);
+            this.panel1.Location = new System.Drawing.Point(20, 481);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(10);
+            this.panel1.Size = new System.Drawing.Size(460, 110);
+            this.panel1.TabIndex = 14;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
+            this.label4.Location = new System.Drawing.Point(20, 20);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(122, 21);
+            this.label4.TabIndex = 8;
+            this.label4.Text = "Crystal Reports";
+            // 
+            // sched_report_Button
+            // 
+            this.sched_report_Button.BackColor = System.Drawing.Color.SteelBlue;
+            this.sched_report_Button.FlatAppearance.BorderSize = 0;
+            this.sched_report_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.sched_report_Button.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.sched_report_Button.ForeColor = System.Drawing.Color.White;
+            this.sched_report_Button.Location = new System.Drawing.Point(20, 50);
+            this.sched_report_Button.Name = "sched_report_Button";
+            this.sched_report_Button.Size = new System.Drawing.Size(200, 40);
+            this.sched_report_Button.TabIndex = 2;
+            this.sched_report_Button.Text = "Schedule Report";
+            this.sched_report_Button.UseVisualStyleBackColor = false;
+            this.sched_report_Button.Click += new System.EventHandler(this.sched_report_Button_Click);
+            // 
+            // spending_report_Button
+            // 
+            this.spending_report_Button.BackColor = System.Drawing.Color.SeaGreen;
+            this.spending_report_Button.FlatAppearance.BorderSize = 0;
+            this.spending_report_Button.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.spending_report_Button.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold);
+            this.spending_report_Button.ForeColor = System.Drawing.Color.White;
+            this.spending_report_Button.Location = new System.Drawing.Point(240, 50);
+            this.spending_report_Button.Name = "spending_report_Button";
+            this.spending_report_Button.Size = new System.Drawing.Size(200, 40);
+            this.spending_report_Button.TabIndex = 9;
+            this.spending_report_Button.Text = "User Spending Report";
+            this.spending_report_Button.UseVisualStyleBackColor = false;
+            this.spending_report_Button.Click += new System.EventHandler(this.spending_report_Button_Click);
+            // 
             // AdminForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.ClientSize = new System.Drawing.Size(500, 480);
+            this.ClientSize = new System.Drawing.Size(500, 602);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.panelSchedule);
             this.Controls.Add(this.panelMovie);
             this.Controls.Add(this.panelUser);
@@ -247,6 +305,8 @@
             this.panelMovie.PerformLayout();
             this.panelSchedule.ResumeLayout(false);
             this.panelSchedule.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -267,5 +327,9 @@
         private System.Windows.Forms.Panel panelUser;
         private System.Windows.Forms.Panel panelMovie;
         private System.Windows.Forms.Panel panelSchedule;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button sched_report_Button;
+        private System.Windows.Forms.Button spending_report_Button;
     }
 }

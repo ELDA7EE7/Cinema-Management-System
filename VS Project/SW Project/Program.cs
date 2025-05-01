@@ -18,6 +18,8 @@ namespace SW_Project
             Application.SetCompatibleTextRenderingDefault(false);
             Register register = new Register();
             register.Show();
+            //UserSpendingCrystalReportForm scheduleCrystalReportForm = new UserSpendingCrystalReportForm();
+            //scheduleCrystalReportForm.Show();
             Application.Run();
 
         }

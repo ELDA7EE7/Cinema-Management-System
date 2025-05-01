@@ -48,16 +48,17 @@ namespace SW_Project
 
                 // Then insert with all parameters
                 string insertCmd = @"INSERT INTO MOVIE_SCHEDULE 
-                            (SCHEDULE_ID, MOVIEID, SCREEN_DATE, START_TIME, END_TIME)
+                            (SCHEDULE_ID, MOVIEID, START_TIME, SEATS_NUM)
                             VALUES 
-                            (:scheduleId, :movieId, :screenDate, :startTime, :endTime)";
+                            (:scheduleId, :movieId, :startTime, :num)";
 
+                // Combine date from dtpScreenDate and time from dtpStartTime
+                DateTime combinedDateTime = dtpScreenDate.Value.Date + dtpStartTime.Value.TimeOfDay;
                 OracleCommand cmd = new OracleCommand(insertCmd, conn);
                 cmd.Parameters.Add("scheduleId", nextId);
                 cmd.Parameters.Add("movieId", Convert.ToInt32(txtMovieId.Text));
-                cmd.Parameters.Add("screenDate", dtpScreenDate.Value.Date);
-                cmd.Parameters.Add("startTime", dtpStartTime.Value);
-                cmd.Parameters.Add("endTime", dtpEndTime.Value);
+                cmd.Parameters.Add("startTime",  combinedDateTime);
+                cmd.Parameters.Add("num",Convert.ToInt32(seats_num.Text));
 
                 int rows = cmd.ExecuteNonQuery();
                 if (rows > 0)
@@ -66,7 +67,6 @@ namespace SW_Project
             catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
-                // Consider logging the full error details
             }
             finally
             {
