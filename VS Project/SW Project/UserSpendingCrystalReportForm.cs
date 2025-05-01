@@ -36,5 +36,12 @@ namespace SW_Project
                 MessageBox.Show("Please Enter A Valid Number");
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            AdminForm admin = new AdminForm();
+            admin.Show();
+            this.Close();
+        }
     }
 }

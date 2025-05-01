@@ -33,7 +33,6 @@
             this.txtMovieId = new System.Windows.Forms.TextBox();
             this.dtpScreenDate = new System.Windows.Forms.DateTimePicker();
             this.dtpStartTime = new System.Windows.Forms.DateTimePicker();
-            this.dtpEndTime = new System.Windows.Forms.DateTimePicker();
             this.btnUpdateSchedule = new System.Windows.Forms.Button();
             this.btnDeleteSchedule = new System.Windows.Forms.Button();
             this.lblScheduleId = new System.Windows.Forms.Label();
@@ -42,8 +41,9 @@
             this.lblStartTime = new System.Windows.Forms.Label();
             this.lblEndTime = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.lblTitle = new System.Windows.Forms.Label();
+            this.seats_num = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -96,16 +96,6 @@
             this.dtpStartTime.ShowUpDown = true;
             this.dtpStartTime.Size = new System.Drawing.Size(200, 25);
             this.dtpStartTime.TabIndex = 5;
-            // 
-            // dtpEndTime
-            // 
-            this.dtpEndTime.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dtpEndTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dtpEndTime.Location = new System.Drawing.Point(162, 277);
-            this.dtpEndTime.Name = "dtpEndTime";
-            this.dtpEndTime.ShowUpDown = true;
-            this.dtpEndTime.Size = new System.Drawing.Size(200, 25);
-            this.dtpEndTime.TabIndex = 6;
             // 
             // btnUpdateSchedule
             // 
@@ -183,9 +173,9 @@
             this.lblEndTime.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEndTime.Location = new System.Drawing.Point(50, 283);
             this.lblEndTime.Name = "lblEndTime";
-            this.lblEndTime.Size = new System.Drawing.Size(65, 17);
+            this.lblEndTime.Size = new System.Drawing.Size(98, 17);
             this.lblEndTime.TabIndex = 13;
-            this.lblEndTime.Text = "End Time:";
+            this.lblEndTime.Text = "Available Seats:";
             // 
             // panel1
             // 
@@ -198,6 +188,16 @@
             this.panel1.Size = new System.Drawing.Size(518, 60);
             this.panel1.TabIndex = 14;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(413, 19);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 1;
+            this.button1.Text = "Back";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Back_To_Admin);
+            // 
             // lblTitle
             // 
             this.lblTitle.AutoSize = true;
@@ -209,20 +209,19 @@
             this.lblTitle.TabIndex = 0;
             this.lblTitle.Text = "Update/Delete Schedule";
             // 
-            // button1
+            // seats_num
             // 
-            this.button1.Location = new System.Drawing.Point(413, 19);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Back";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.Back_To_Admin);
+            this.seats_num.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.seats_num.Location = new System.Drawing.Point(162, 275);
+            this.seats_num.Name = "seats_num";
+            this.seats_num.Size = new System.Drawing.Size(200, 25);
+            this.seats_num.TabIndex = 15;
             // 
             // UpdateDeleteScheduleForm
             // 
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(518, 400);
+            this.Controls.Add(this.seats_num);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblEndTime);
             this.Controls.Add(this.lblStartTime);
@@ -231,7 +230,6 @@
             this.Controls.Add(this.lblScheduleId);
             this.Controls.Add(this.btnDeleteSchedule);
             this.Controls.Add(this.btnUpdateSchedule);
-            this.Controls.Add(this.dtpEndTime);
             this.Controls.Add(this.dtpStartTime);
             this.Controls.Add(this.dtpScreenDate);
             this.Controls.Add(this.txtMovieId);
@@ -255,7 +253,6 @@
         private System.Windows.Forms.TextBox txtMovieId;
         private System.Windows.Forms.DateTimePicker dtpScreenDate;
         private System.Windows.Forms.DateTimePicker dtpStartTime;
-        private System.Windows.Forms.DateTimePicker dtpEndTime;
         private System.Windows.Forms.Button btnUpdateSchedule;
         private System.Windows.Forms.Button btnDeleteSchedule;
         private System.Windows.Forms.Label lblScheduleId;
@@ -266,5 +263,6 @@
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label lblTitle;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox seats_num;
     }
 }

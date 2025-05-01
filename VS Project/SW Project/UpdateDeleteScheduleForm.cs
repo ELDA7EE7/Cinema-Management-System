@@ -25,16 +25,19 @@ namespace SW_Project
         {
             using (OracleConnection conn = new OracleConnection(constr))
             {
+                // Combine date from dtpScreenDate and time from dtpStartTime
+                DateTime combinedDateTime = dtpScreenDate.Value.Date + dtpStartTime.Value.TimeOfDay;
+
                 string updateCmd = @"UPDATE MOVIE_SCHEDULE 
-                                     SET MOVIEID = :movieId, SCREEN_DATE = :screenDate, 
-                                         START_TIME = :startTime, END_TIME = :endTime
-                                     WHERE SCHEDULE_ID = :schedId";
+                           SET MOVIEID = :movieId, 
+                               START_TIME = :startTime,
+                               SEATS_NUM = :seatsNum
+                           WHERE SCHEDULE_ID = :schedId";
 
                 OracleCommand cmd = new OracleCommand(updateCmd, conn);
                 cmd.Parameters.Add("movieId", Convert.ToInt32(txtMovieId.Text));
-                cmd.Parameters.Add("screenDate", dtpScreenDate.Value.Date);
-                cmd.Parameters.Add("startTime", dtpStartTime.Value);
-                cmd.Parameters.Add("endTime", dtpEndTime.Value);
+                cmd.Parameters.Add("startTime", combinedDateTime);
+                cmd.Parameters.Add("seatsNum", Convert.ToInt32(seats_num.Text));
                 cmd.Parameters.Add("schedId", Convert.ToInt32(txtScheduleId.Text));
 
                 try
@@ -67,9 +70,14 @@ namespace SW_Project
                 if (ds.Tables[0].Rows.Count > 0)
                 {
                     txtMovieId.Text = ds.Tables[0].Rows[0]["MOVIEID"].ToString();
-                    dtpScreenDate.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["SCREEN_DATE"]);
-                    dtpStartTime.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["START_TIME"]);
-                    dtpEndTime.Value = Convert.ToDateTime(ds.Tables[0].Rows[0]["END_TIME"]);
+                    seats_num.Text = ds.Tables[0].Rows[0]["Seats_Num"].ToString();
+                    // Get the combined DateTime from database
+                    DateTime startTime = Convert.ToDateTime(ds.Tables[0].Rows[0]["START_TIME"]);
+                    // Set date portion to dtpScreenDate
+                    dtpScreenDate.Value = startTime.Date;
+
+                    // Set time portion to dtpStartTime
+                    dtpStartTime.Value = startTime;
                 }
                 else
                 {

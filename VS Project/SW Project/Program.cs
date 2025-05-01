@@ -16,10 +16,10 @@ namespace SW_Project
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Register register = new Register();
-            //register.Show();
-            UserSpendingCrystalReportForm scheduleCrystalReportForm = new UserSpendingCrystalReportForm();
-            scheduleCrystalReportForm.Show();
+            Register register = new Register();
+            register.Show();
+            //UserSpendingCrystalReportForm scheduleCrystalReportForm = new UserSpendingCrystalReportForm();
+            //scheduleCrystalReportForm.Show();
             Application.Run();
 
         }

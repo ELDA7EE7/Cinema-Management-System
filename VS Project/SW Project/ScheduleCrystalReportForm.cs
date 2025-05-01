@@ -51,5 +51,12 @@ namespace SW_Project
 
             return dt;
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            AdminForm admin = new AdminForm();
+            admin.Show();
+            this.Close();
+        }
     }
 }
